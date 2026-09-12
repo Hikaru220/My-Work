@@ -1,0 +1,1143 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hikaru220 — портфолио разработчика</title>
+<meta name="description" content="Портфолио: шесть продакшен-систем — маркетплейс, EdTech-платформа, мобильный инструмент для стройки, финтех-взаиморасчёты, SMM-автоматизация и своя сеть Minecraft.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #14120E;
+    --bg-elevated: #1C1913;
+    --bg-elevated-2: #23201A;
+    --text: #EFE9DC;
+    --text-dim: #AEA18A;
+    --text-faint: #7C7160;
+    --border: #322C22;
+    --border-soft: #262117;
+    --shadow: rgba(0,0,0,0.45);
+
+    --c-edu: #35D6BA;      /* EdTech — Vanvi */
+    --c-mobile: #FF9457;   /* Мобайл/стройка — PlanScan */
+    --c-fintech: #A08CFF;  /* Финтех — Kasso */
+    --c-smm: #FF6E9C;      /* SMM/AI — автопилот */
+    --c-game: #F6C445;     /* Game dev — Sun Network */
+    --c-market: #5B9BFF;   /* Маркетплейс — Mebel Work */
+
+    /* Fixed deep fills for hero-band panels (white text on top) — same in both themes */
+    --fill-edu: #0E7A69;
+    --fill-mobile: #B85419;
+    --fill-fintech: #5A3FDE;
+    --fill-smm: #C22F63;
+    --fill-game: #8A6A12;
+    --fill-market: #1B4FBF;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #FBF8F1;
+      --bg-elevated: #F4EEE0;
+      --bg-elevated-2: #ECE3CE;
+      --text: #251F16;
+      --text-dim: #6C5F49;
+      --text-faint: #8D8067;
+      --border: #E3D7BC;
+      --border-soft: #EAE0C9;
+      --shadow: rgba(120,100,60,0.14);
+
+      --c-edu: #0D9280;
+      --c-mobile: #C25A17;
+      --c-fintech: #6249DD;
+      --c-smm: #D33A6B;
+      --c-game: #A67908;
+      --c-market: #1D57C9;
+    }
+  }
+
+  :root[data-theme="light"] {
+    --bg: #FBF8F1;
+    --bg-elevated: #F4EEE0;
+    --bg-elevated-2: #ECE3CE;
+    --text: #251F16;
+    --text-dim: #6C5F49;
+    --text-faint: #8D8067;
+    --border: #E3D7BC;
+    --border-soft: #EAE0C9;
+    --shadow: rgba(120,100,60,0.14);
+
+    --c-edu: #0D9280;
+    --c-mobile: #C25A17;
+    --c-fintech: #6249DD;
+    --c-smm: #D33A6B;
+    --c-game: #A67908;
+    --c-market: #1D57C9;
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14120E;
+    --bg-elevated: #1C1913;
+    --bg-elevated-2: #23201A;
+    --text: #EFE9DC;
+    --text-dim: #AEA18A;
+    --text-faint: #7C7160;
+    --border: #322C22;
+    --border-soft: #262117;
+    --shadow: rgba(0,0,0,0.45);
+
+    --c-edu: #35D6BA;
+    --c-mobile: #FF9457;
+    --c-fintech: #A08CFF;
+    --c-smm: #FF6E9C;
+    --c-game: #F6C445;
+    --c-market: #5B9BFF;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { color-scheme: light dark; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; }
+
+  ::selection { background: color-mix(in srgb, var(--c-fintech) 30%, transparent); color: var(--text); }
+
+  h1, h2, h3 {
+    font-family: "Fraunces", Georgia, serif;
+    text-wrap: balance;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  a { color: var(--text); text-decoration-color: var(--border); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--text-dim); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--c-fintech); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: clamp(28px, 6vw, 68px) 24px 80px;
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 7vw, 4rem);
+    letter-spacing: -0.015em;
+    background: linear-gradient(100deg, var(--c-edu), var(--c-mobile) 22%, var(--c-fintech) 42%, var(--c-smm) 62%, var(--c-game) 82%, var(--c-market));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: var(--text);
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero .role {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-top: 12px;
+  }
+
+  .avail {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 14px;
+    padding: 6px 12px 6px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--c-edu) 16%, transparent);
+    border: 1px solid color-mix(in srgb, var(--c-edu) 35%, var(--border));
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  .avail .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--c-edu);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--c-edu) 22%, transparent);
+    flex: none;
+  }
+
+  .hero p.lede {
+    max-width: 62ch;
+    color: var(--text-dim);
+    font-size: 1.06rem;
+    margin-top: 18px;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin-top: 26px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .legend i { width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); flex: none; }
+
+  .stat-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+  }
+
+  .stat {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 9px 14px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-soft);
+    border-radius: 8px;
+    font-size: 13px;
+  }
+
+  .stat b {
+    font-family: "IBM Plex Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .stat span { color: var(--text-faint); }
+
+  /* ---------- Approach ---------- */
+
+  .approach {
+    margin-top: 52px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .approach h4 {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+
+  .approach p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text-dim);
+  }
+
+  /* ---------- Stack overview ---------- */
+
+  .stack {
+    margin-top: 48px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 18px;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    row-gap: 12px;
+    column-gap: 16px;
+    font-size: 14px;
+  }
+
+  .stack-grid dt {
+    color: var(--text-faint);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    padding-top: 2px;
+  }
+
+  .stack-grid dd {
+    margin: 0;
+    color: var(--text-dim);
+  }
+
+  .stack-grid dd b { color: var(--text); font-weight: 500; }
+
+  /* ---------- Projects ---------- */
+
+  .projects { margin-top: 52px; }
+
+  .card-list {
+    display: grid;
+    gap: 18px;
+  }
+
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 10px 24px -18px var(--shadow);
+    overflow: hidden;
+  }
+
+  .card-body {
+    padding: 24px 26px 28px;
+    display: grid;
+    gap: 14px;
+  }
+
+  /* ---------- Hero band (device mockup + colored case-study panel) ---------- */
+  .hero-band {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--fill);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-band .watermark {
+    position: absolute;
+    right: -34px; bottom: -34px;
+    width: 190px; height: 190px;
+    opacity: 0.16;
+    color: #fff;
+    pointer-events: none;
+  }
+  .hero-device {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 26px 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-text {
+    flex: 1 1 220px;
+    min-width: 220px;
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-text .eyebrow-inv {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+  }
+  .hero-text h3 {
+    color: #fff;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.08;
+    margin-top: 0;
+  }
+  .hero-text p {
+    color: rgba(255,255,255,0.86);
+    font-size: 13.5px;
+    max-width: 34ch;
+    margin: 0;
+  }
+
+  /* Reusable phone device frame */
+  .phone {
+    width: 208px;
+    background: #0b0c0e;
+    border-radius: 30px;
+    padding: 8px;
+    box-shadow: 0 20px 40px -16px rgba(0,0,0,0.55);
+    position: relative;
+  }
+  .phone::before {
+    content: "";
+    position: absolute;
+    top: 8px; left: 50%; transform: translateX(-50%);
+    width: 64px; height: 15px;
+    background: #0b0c0e;
+    border-radius: 0 0 12px 12px;
+    z-index: 3;
+  }
+  .phone-screen {
+    position: relative;
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    font-family: Roboto, -apple-system, "Segoe UI", sans-serif;
+    color: #1c1c1c;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+  }
+  .phone-home {
+    position: absolute;
+    bottom: 6px; left: 50%; transform: translateX(-50%);
+    width: 90px; height: 3.5px; border-radius: 3px;
+    background: rgba(0,0,0,0.55);
+    z-index: 3;
+  }
+
+  .card .desc {
+    color: var(--text-dim);
+    max-width: 68ch;
+    font-size: 15px;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 8px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .tags .tag {
+    padding: 3px 9px;
+    background: var(--bg-elevated-2);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+  }
+
+  .highlights {
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 9px;
+    max-width: 68ch;
+  }
+
+  .highlights li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14.5px;
+    color: var(--text-dim);
+  }
+
+  .highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 8px;
+    width: 6px; height: 6px;
+    border-radius: 1px;
+    background: var(--proj);
+    transform: rotate(45deg);
+  }
+
+  .highlights b { color: var(--text); font-weight: 500; }
+  .highlights code, .desc code {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 0.9em;
+    background: var(--bg-elevated-2);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .shot {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #fff;
+    box-shadow: 0 16px 32px -22px var(--shadow);
+  }
+  .browser-chrome {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 10px;
+    background: #e7e8ec;
+    border-bottom: 1px solid #d3d5db;
+  }
+  .browser-chrome .dots { display: flex; gap: 5px; flex: none; }
+  .browser-chrome .dots span { width: 9px; height: 9px; border-radius: 50%; display: block; }
+  .browser-chrome .dots span:nth-child(1) { background: #ef6a5f; }
+  .browser-chrome .dots span:nth-child(2) { background: #f5bf4f; }
+  .browser-chrome .dots span:nth-child(3) { background: #61c454; }
+  .browser-chrome .addr {
+    flex: 1;
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 10.5px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: -apple-system, "Segoe UI", sans-serif;
+  }
+  .browser-chrome .addr svg { width: 10px; height: 10px; flex: none; color: #8a8f98; }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot figcaption {
+    padding: 8px 12px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    color: var(--text-faint);
+    background: var(--bg-elevated-2);
+    border-top: 1px solid var(--border);
+  }
+  figure.shot { margin: 4px 0 0; }
+
+  /* ---------- Kasso admin mockup (real component structure/CSS vars, example data) ---------- */
+  .kmock {
+    display: flex;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    background: #f4f5f7;
+    color: #1a1d23;
+    min-width: 560px;
+  }
+  .kmock-sidebar {
+    width: 132px;
+    flex-shrink: 0;
+    background: #14161c;
+    color: #e5e7eb;
+    padding: 10px 0;
+  }
+  .kmock-brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 4px 12px 12px;
+  }
+  .kmock-brand .mark {
+    width: 18px; height: 18px; border-radius: 5px;
+    background: #fff; color: #14161c;
+    display: flex; align-items: center; justify-content: center;
+    font-family: "Fraunces", serif; font-weight: 700; font-size: 12px;
+  }
+  .kmock-nav div {
+    padding: 6px 12px;
+    color: #cbd0dc;
+    font-size: 10.5px;
+    border-left: 3px solid transparent;
+  }
+  .kmock-nav div.active {
+    background: rgba(41,84,230,0.22);
+    border-left-color: #2954e6;
+    color: #fff;
+  }
+  .kmock-main { flex: 1; min-width: 0; }
+  .kmock-topbar {
+    height: 26px;
+    display: flex; align-items: center; justify-content: flex-end;
+    padding: 0 14px;
+    background: #fff;
+    border-bottom: 1px solid #dde1e6;
+    font-size: 10px;
+    color: #6b7280;
+  }
+  .kmock-content { padding: 14px; }
+  .kmock-content h1 { font-size: 13px; margin: 0 0 10px; color: #1a1d23; }
+  .kmock-content h2 { font-size: 11.5px; margin: 0 0 8px; color: #1a1d23; }
+  .kmock-card {
+    background: #fff;
+    border: 1px solid #dde1e6;
+    border-radius: 7px;
+    padding: 11px 13px;
+    margin-bottom: 11px;
+  }
+  .kmock-detail-grid {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 3px 12px;
+    margin: 0;
+    font-size: 10.5px;
+  }
+  .kmock-detail-grid dt { color: #6b7280; }
+  .kmock-detail-grid dd { margin: 0; }
+  .kmock-detail-grid .mono { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; }
+  .kmock-badge {
+    display: inline-block; padding: 1px 8px; border-radius: 999px;
+    font-size: 9.5px; font-weight: 600; background: #fff4d6; color: #8a5a00;
+  }
+  .kmock table { width: 100%; border-collapse: collapse; font-size: 10px; }
+  .kmock th, .kmock td { text-align: left; padding: 5px 6px; border-bottom: 1px solid #dde1e6; }
+  .kmock thead th { color: #6b7280; font-weight: 600; font-size: 8.8px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .kmock a.klink { color: #2954e6; }
+
+  /* ---------- Phone-screen content (mobile mockups: real screen structure, example data) ---------- */
+  .pmock-status { height: 18px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; font-size: 8.5px; color: #444; background: #fff; }
+  .pmock-appbar { flex: none; display: flex; align-items: center; gap: 6px; padding: 8px 12px 10px; font-size: 10.5px; font-weight: 600; background: #fff; }
+  .pmock-appbar .back { font-size: 9px; color: #666; font-weight: 400; }
+  .pmock-content { flex: 1; min-height: 0; overflow: hidden; padding: 0 10px; background: #f6f7f5; }
+  .pmock-card { background: #fff; border: 1px solid #e4e4e4; border-radius: 12px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.05); margin-bottom: 10px; }
+  .pmock-lbl { font-size: 8.5px; color: #666; text-transform: uppercase; letter-spacing: 0.03em; }
+  .pmock-balance { font-size: 18px; font-weight: 700; margin-top: 2px; }
+  .pmock-row2 { display: flex; gap: 16px; margin-top: 10px; }
+  .pmock-row2 div { flex: 1; }
+  .pmock-row2 .lbl { font-size: 8.5px; color: #666; }
+  .pmock-row2 .val { font-size: 11px; font-weight: 600; margin-top: 2px; }
+  .pmock-total { margin-top: 10px; }
+  .pmock-btn { margin-top: 12px; text-align: center; padding: 8px; border-radius: 8px; background: #eef3ee; color: #2E7D32; font-size: 10px; font-weight: 600; }
+  .pmock-chips { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 8px; }
+  .pmock-chip { flex: none; padding: 3px 9px; border-radius: 999px; border: 1px solid #d8d8d8; font-size: 8.5px; color: #444; background: #fff; }
+  .pmock-chip.active { background: #2E7D32; border-color: #2E7D32; color: #fff; }
+  .pmock-op { display: flex; justify-content: space-between; align-items: flex-start; background: #fff; border: 1px solid #ececec; border-radius: 10px; padding: 9px 10px; margin-bottom: 8px; }
+  .pmock-op .t { font-size: 10px; font-weight: 600; }
+  .pmock-op .c { font-size: 8.5px; color: #666; margin-top: 1px; }
+  .pmock-op .m { font-size: 8px; color: #8a8a8a; margin-top: 3px; }
+  .pmock-op .amt { font-size: 10.5px; font-weight: 700; white-space: nowrap; }
+  .pmock-op .amt.pos { color: #2E7D32; }
+  .pmock-op .amt.neg { color: #B3261E; }
+  .pmock-fab {
+    position: absolute; right: 12px; bottom: 12px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: #2E7D32; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; line-height: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.28);
+  }
+
+  /* ---------- PlanScan phone mockup ---------- */
+  .plan-photo {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #d8c7a8 0%, #d8c7a8 58%, #8a7355 58%, #6b5842 100%);
+  }
+  .plan-photo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .plan-label {
+    position: absolute; padding: 2px 7px; border-radius: 5px;
+    background: rgba(20,18,14,0.72); color: #fff;
+    font-size: 8.5px; font-family: "IBM Plex Mono", monospace;
+  }
+  .plan-sheet { flex: none; background: #fff; padding: 10px 12px 12px; }
+  .plan-row { display: flex; justify-content: space-between; font-size: 10.5px; padding: 3px 0; color: #333; }
+  .plan-row b { font-weight: 700; }
+  .plan-save { margin-top: 8px; text-align: center; padding: 8px; border-radius: 8px; background: var(--fill-mobile); color: #fff; font-size: 10px; font-weight: 600; }
+
+  /* ---------- Telegram bot mockup (insta) ---------- */
+  .tg-screen { background: #e7ecef; }
+  .tg-header { flex: none; background: #4d7ea8; color: #fff; display: flex; align-items: center; gap: 8px; padding: 9px 12px; }
+  .tg-avatar { width: 26px; height: 26px; border-radius: 50%; background: #3b6383; display: flex; align-items: center; justify-content: center; font-size: 13px; flex: none; }
+  .tg-name { font-size: 11px; font-weight: 600; }
+  .tg-sub { font-size: 8.5px; opacity: 0.8; }
+  .tg-body { flex: 1; min-height: 0; padding: 10px; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+  .tg-msg { max-width: 84%; background: #fff; border-radius: 10px 10px 10px 2px; padding: 7px 9px; font-size: 9.5px; box-shadow: 0 1px 1px rgba(0,0,0,.08); }
+  .tg-msg.me { align-self: flex-end; background: #d5f0c1; border-radius: 10px 10px 2px 10px; }
+  .tg-thumb { width: 100%; height: 52px; border-radius: 6px; margin-bottom: 5px; background: linear-gradient(135deg,#cbb89a,#8f7a5c); }
+  .tg-cap { line-height: 1.35; }
+  .tg-time { font-size: 7.5px; color: #8a8a8a; text-align: right; margin-top: 3px; }
+  .tg-actions { display: flex; flex-direction: column; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 1px rgba(0,0,0,.08); }
+  .tg-action { padding: 7px 10px; font-size: 9.5px; color: #4d7ea8; text-align: center; border-top: 1px solid #eef0f2; }
+  .tg-action:first-child { border-top: none; }
+
+  /* ---------- Discord mockup (Sun Network) ---------- */
+  .discord-frame { width: 300px; height: 420px; background: #313338; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px -16px rgba(0,0,0,0.55); display: flex; font-family: -apple-system, "Segoe UI", sans-serif; }
+  .discord-guilds { width: 42px; flex: none; background: #1e1f22; display: flex; flex-direction: column; align-items: center; padding: 10px 0; gap: 8px; }
+  .discord-guilds .g { width: 28px; height: 28px; border-radius: 50%; background: #3a3c42; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #dbdee1; font-weight: 700; }
+  .discord-guilds .g.active { background: var(--fill-game); border-radius: 13px; color: #fff; }
+  .discord-channels { width: 108px; flex: none; background: #2b2d31; padding: 10px 8px; color: #96989d; font-size: 9.5px; }
+  .discord-channels .srv { color: #fff; font-weight: 700; font-size: 10.5px; margin-bottom: 10px; }
+  .discord-channels .ch { padding: 4px 6px; border-radius: 4px; margin-bottom: 2px; }
+  .discord-channels .ch.active { background: #3f4147; color: #fff; }
+  .discord-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .discord-topbar { height: 32px; flex: none; display: flex; align-items: center; padding: 0 10px; font-size: 10px; color: #f2f3f5; border-bottom: 1px solid #26272b; font-weight: 600; }
+  .discord-msgs { flex: 1; min-height: 0; padding: 10px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+  .discord-msg { display: flex; gap: 8px; }
+  .discord-msg .av { width: 24px; height: 24px; border-radius: 50%; background: var(--fill-game); flex: none; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #1e1f22; font-weight: 700; }
+  .discord-msg .name { font-weight: 600; color: #fff; font-size: 9.5px; }
+  .discord-msg .tag { font-size: 6.5px; background: #5865f2; color: #fff; border-radius: 3px; padding: 1px 4px; margin-left: 5px; }
+  .discord-msg .body { font-size: 9px; color: #dbdee1; margin-top: 2px; }
+  .discord-msg .embed { margin-top: 4px; border-left: 3px solid var(--fill-game); background: #2b2d31; border-radius: 4px; padding: 6px 8px; font-size: 8.5px; color: #c7c9cd; }
+  .discord-inputbar { flex: none; margin: 0 10px 10px; background: #383a40; border-radius: 8px; padding: 8px 10px; font-size: 9px; color: #8e9297; }
+
+  /* ---------- Footer ---------- */
+
+  footer {
+    margin-top: 52px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .contact-note { margin: 0; max-width: 42ch; }
+
+  footer .links { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--c-fintech); }
+
+  .contact-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: var(--c-fintech);
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none;
+  }
+  .contact-primary svg { width: 15px; height: 15px; }
+  .contact-primary:hover { background: color-mix(in srgb, var(--c-fintech) 85%, black); }
+
+  @media (max-width: 560px) {
+    .stack-grid { grid-template-columns: 1fr; row-gap: 4px; }
+    .stack-grid dt { padding-top: 10px; }
+    .approach { grid-template-columns: 1fr; gap: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-label">Портфолио разработчика</div>
+    <h1>Hikaru220</h1>
+    <div class="role">Full-stack &amp; mobile developer — веб, мобайл, бэкенд, игровые серверы</div>
+    <div class="avail"><span class="dot"></span>Открыт для фриланс-проектов и стажировок — набираю опыт</div>
+    <p class="lede">Шесть систем на пяти языках — от маркетплейса с банковским OTP-платежом до собственной сети Minecraft с кросс-серверной синхронизацией. Ниже — не лендинги, а рабочий код с настоящими пользователями, деньгами и деплоями.</p>
+
+    <div class="legend">
+      <span><i style="background:var(--c-edu)"></i>EdTech</span>
+      <span><i style="background:var(--c-mobile)"></i>Мобайл / стройка</span>
+      <span><i style="background:var(--c-fintech)"></i>Финтех</span>
+      <span><i style="background:var(--c-smm)"></i>SMM / AI</span>
+      <span><i style="background:var(--c-game)"></i>Game dev</span>
+      <span><i style="background:var(--c-market)"></i>Маркетплейс</span>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat"><b>6</b><span>проектов</span></div>
+      <div class="stat"><b>≈94 000</b><span>строк кода</span></div>
+      <div class="stat"><b>5</b><span>языков: JS/TS, Python, Kotlin, Java, SQL</span></div>
+      <div class="stat"><b>19</b><span>плагинов в одной только игровой сети</span></div>
+    </div>
+  </header>
+
+  <section class="approach">
+    <div>
+      <h4>Строю инфраструктуру, а не демо</h4>
+      <p>Сам настраиваю деплой, аутентификацию и платежи — а не оставляю их «на потом».</p>
+    </div>
+    <div>
+      <h4>Пишу своё, когда чужое не подходит</h4>
+      <p>Свой рендер слайдов, свой изометрический движок, свой relay между серверами — там, где готовые библиотеки не закрывали задачу.</p>
+    </div>
+    <div>
+      <h4>Документирую компромиссы</h4>
+      <p>Например, два готовых бэкенда публикации в SMM-боте намеренно выключены до готовности инфраструктуры — а не забыты.</p>
+    </div>
+  </section>
+
+  <section class="stack">
+    <div class="section-title">Стек</div>
+    <dl class="stack-grid">
+      <dt>Backend</dt>
+      <dd><b>Node.js / Express</b>, <b>NestJS</b> + TypeORM, <b>FastAPI</b> + SQLAlchemy (async), <b>aiogram 3</b>, <b>Next.js</b> на Cloudflare Workers</dd>
+      <dt>Мобайл</dt>
+      <dd><b>React Native / Expo</b> + TypeScript, нативный <b>Kotlin</b> + Jetpack Compose</dd>
+      <dt>Данные</dt>
+      <dd>PostgreSQL, MySQL, SQLite, Cloudflare D1 + Drizzle ORM, R2 — от офлайн-first базы до релей-таблиц между серверами</dd>
+      <dt>Игры / JVM</dt>
+      <dd><b>Java 21</b>, Paper API, Maven / Gradle</dd>
+      <dt>Интеграции</dt>
+      <dd>OAuth2, Telegram Bot API, банковский OTP-платёж (mbank), платёжные вебхуки, Gemini AI, JDA (Discord), LuckPerms/PlaceholderAPI</dd>
+    </dl>
+  </section>
+
+  <section class="projects">
+    <div class="section-title">Проекты</div>
+
+    <div class="card-list">
+
+      <article class="card" style="--proj: var(--c-market); --fill: var(--fill-market)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>
+          <div class="hero-device">
+            <div class="shot" style="width:320px">
+              <div class="browser-chrome">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>mebelwork.pro</div>
+              </div>
+              <img src="images/mebelwork-screenshot.jpg" alt="Главная страница Mebel Work — поиск мастера по городу и категории" loading="lazy">
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Маркетплейс</div>
+            <h3>Mebel Work</h3>
+            <p>Мебельные мастера и клиенты в Кыргызстане — заявка вместо долгих поисков</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Двусторонний маркетплейс мебельных мастеров: клиент один раз описывает задачу и получает до 7 предложений с ценой и сроком от проверенных мастеров своего города; оплата лидов и подписок идёт через встроенный кошелёк с пополнением через банковский OTP-платёж.</p>
+          <div class="tags">
+            <span class="tag">Next.js 16 (App Router)</span><span class="tag">Cloudflare Workers</span>
+            <span class="tag">D1 + Drizzle ORM</span><span class="tag">R2</span><span class="tag">Google / Telegram OAuth</span>
+          </div>
+          <ul class="highlights">
+            <li>Полноценная интеграция с <b>межбанковским OTP-платёжным шлюзом</b> Кыргызстана: старт → подтверждение кодом → поллинг статуса, с идемпотентностью и блокировкой после исчерпанных попыток.</li>
+            <li>Next.js работает <b>воркером на Cloudflare</b> (D1 + R2 + трансформация изображений), плюс запасной путь деплоя — тот же wrangler в Docker на VPS.</li>
+            <li>20+ таблиц данных: заявки клиента → платные отклики мастеров по цене категории → выбор специалиста, плюс кошелёк, рефералка и подписка «Мастер+».</li>
+            <li>Билингвальный интерфейс (RU/KY) и уведомления о новых откликах в WhatsApp, Telegram и web-push.</li>
+          </ul>
+          <figure class="shot" style="max-width:520px">
+            <div class="browser-chrome">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>mebelwork.pro/requests</div>
+            </div>
+            <img src="images/mebelwork-requests.jpg" alt="Лента заявок клиентов для мастеров на Mebel Work" loading="lazy">
+            <figcaption>сторона мастера — открытые заявки с бюджетом и языком клиента</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-edu); --fill: var(--fill-edu)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 12 12 6l10 6-10 6-10-6Z"/><path d="M12 18v4"/></svg>
+          <div class="hero-device">
+            <div class="shot" style="width:280px">
+              <div class="browser-chrome">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>vanvi.online</div>
+              </div>
+              <img src="images/vanvi-screenshot.png" alt="Главный экран курса Vanvi — заголовок, статистика, чат-бот Нуви" loading="lazy">
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">EdTech</div>
+            <h3>Vanvi</h3>
+            <p>Платформа онлайн-курса с оплатой, личным кабинетом и партнёрской программой</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Коммерческая платформа курса «ИИ в маркетинге» для рынка Кыргызстана: не лендинг, а полный продукт — платный доступ к урокам, личный кабинет, партнёрская программа и админка, всё написано и задеплоено с нуля.</p>
+          <div class="tags">
+            <span class="tag">Node.js / Express</span><span class="tag">SQLite</span><span class="tag">JWT + Google OAuth</span>
+            <span class="tag">Python (сборка контента)</span><span class="tag">nginx / systemd / VPS</span>
+          </div>
+          <ul class="highlights">
+            <li><b>Собственный вьювер слайдов</b> на JPEG-рендере вместо Office Online Viewer — обходит отсутствие полноценного Fullscreen API на iOS Safari.</li>
+            <li>Оплата через платёжный шлюз с <b>идемпотентным вебхуком</b> — защита от повторной выдачи тарифа при ретраях платёжного провайдера.</li>
+            <li>Python-пайплайн конвертирует <b>55 презентаций</b> в 38 уроков и 21 статью библиотеки (LibreOffice → PyMuPDF → JPEG).</li>
+            <li>Отдельный Telegram-бот (~1400 строк) ведёт партнёрскую программу с синхронизацией в Google Sheets.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-mobile); --fill: var(--fill-mobile)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2.5" y="9" width="19" height="6" rx="1.2" transform="rotate(-10 12 12)"/></svg>
+          <div class="hero-device">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="pmock-status"><span>9:41</span><span>●●●</span></div>
+                <div class="pmock-appbar"><span class="back">←</span> Комната — гостиная</div>
+                <div class="plan-photo">
+                  <svg viewBox="0 0 200 230" preserveAspectRatio="none">
+                    <polygon points="30,40 150,30 168,150 45,175" fill="var(--c-mobile)" fill-opacity="0.16" stroke="var(--c-mobile)" stroke-width="2.5"/>
+                    <circle cx="30" cy="40" r="4" fill="#fff" stroke="var(--c-mobile)" stroke-width="2"/>
+                    <circle cx="150" cy="30" r="4" fill="#fff" stroke="var(--c-mobile)" stroke-width="2"/>
+                    <circle cx="168" cy="150" r="4" fill="#fff" stroke="var(--c-mobile)" stroke-width="2"/>
+                    <circle cx="45" cy="175" r="4" fill="#fff" stroke="var(--c-mobile)" stroke-width="2"/>
+                  </svg>
+                  <div class="plan-label" style="left:76px; top:14px">4.2 м</div>
+                  <div class="plan-label" style="left:160px; top:95px">3.1 м</div>
+                </div>
+                <div class="plan-sheet">
+                  <div class="plan-row"><span>Площадь</span><b>18.4 м²</b></div>
+                  <div class="plan-row"><span>Периметр</span><b>17.2 м</b></div>
+                  <div class="plan-row"><span>Высота потолка</span><b>2.7 м</b></div>
+                  <div class="plan-save">Сохранить план</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Мобайл / стройка</div>
+            <h3>PlanScan</h3>
+            <p>Обмер помещений на стройке по фото — без рулетки, AR и LiDAR</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Приложение для ремонтных и строительных бригад: сфотографировать комнату, обвести план поверх фото, откалибровать масштаб по длине одной стены — и сразу получить площадь, объём, 3D-превью мебели и PDF-смету.</p>
+          <div class="tags">
+            <span class="tag">React Native / Expo</span><span class="tag">TypeScript</span>
+            <span class="tag">SQLite (offline-first)</span><span class="tag">react-native-svg</span>
+          </div>
+          <ul class="highlights">
+            <li>Калибровка <b>всего плана по одной известной стене</b> — площадь и объём считаются формулой шнурования, без AR и LiDAR.</li>
+            <li>Собственный изометрический 3D-движок (~35 строк) — проекция и мебель рисуются обычными SVG-полигонами, без 3D-библиотек.</li>
+            <li>Редактор плана с перетаскиванием точек и проёмов — на голом <code>PanResponder</code>, без сторонних canvas-библиотек.</li>
+            <li>Офлайн-first: локальная SQLite со схемой миграций и готовой очередью синхронизации под будущий бэкенд.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-fintech); --fill: var(--fill-fintech)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M4 8h16M4 8l-2.4 5.2a3 3 0 0 0 5.8 0L5 8Z"/><path d="M20 8l-2.4 5.2a3 3 0 0 0 5.8 0L21 8Z"/></svg>
+          <div class="hero-device">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="pmock-status"><span>9:41</span><span>●●●</span></div>
+                <div class="pmock-appbar"><span class="back">←</span> Ремонт квартиры, ул. Токтогула 45</div>
+                <div class="pmock-content">
+                  <div class="pmock-card">
+                    <div class="pmock-lbl">Баланс</div>
+                    <div class="pmock-balance">9 000 сом</div>
+                    <div class="pmock-row2">
+                      <div><div class="lbl">Материалы</div><div class="val">6 200 сом</div></div>
+                      <div><div class="lbl">Работа</div><div class="val">4 800 сом</div></div>
+                    </div>
+                    <div class="pmock-row2 pmock-total">
+                      <div><div class="lbl">Итоговая стоимость</div><div class="val">11 000 сом</div></div>
+                    </div>
+                    <div class="pmock-btn">Закрыть проект</div>
+                  </div>
+                  <div class="pmock-chips">
+                    <span class="pmock-chip active">Все типы</span>
+                    <span class="pmock-chip">Расход</span>
+                    <span class="pmock-chip">Предоплата</span>
+                  </div>
+                  <div class="pmock-op">
+                    <div><div class="t">Расход</div><div class="c">Материалы</div><div class="m">Бекбол Асан · 12.09, 14:20</div></div>
+                    <div class="amt neg">−6 200 сом</div>
+                  </div>
+                  <div class="pmock-op">
+                    <div><div class="t">Предоплата</div><div class="m">Айгуль К. · 10.09, 09:05</div></div>
+                    <div class="amt pos">+20 000 сом</div>
+                  </div>
+                  <div class="pmock-op">
+                    <div><div class="t">Расход</div><div class="c">Работа</div><div class="m">Бекбол Асан · 08.09, 18:40</div></div>
+                    <div class="amt neg">−4 800 сом</div>
+                  </div>
+                </div>
+                <div class="pmock-fab">+</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Финтех / B2B</div>
+            <h3>Kasso</h3>
+            <p>Взаиморасчёты подрядчика и клиента — баланс и итоговый расчёт в реальном времени</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Сервис для мастеров, дизайнеров и организаторов мероприятий в Кыргызстане: клиент вносит предоплату, подрядчик фотографирует чеки расходов и фиксирует свою работу — приложение ведёт баланс и считает итоговый расчёт при закрытии проекта.</p>
+          <div class="tags">
+            <span class="tag">NestJS + TypeORM</span><span class="tag">PostgreSQL</span>
+            <span class="tag">React + Vite (admin)</span><span class="tag">Kotlin + Jetpack Compose</span>
+          </div>
+          <ul class="highlights">
+            <li><b>Три независимых клиента</b> (backend, веб-админка, нативный Android) поверх одного REST API.</li>
+            <li>Финансовая логика (баланс, автомат закрытия сделки, тарифы) вынесена в <b>чистый слой без побочных эффектов</b>, полностью покрытый юнит-тестами.</li>
+            <li><b>Паттерн адаптеров</b> под каждую внешнюю интеграцию (SMS, OCR, пуши, оплата, сторедж) — весь стек поднимается локально в mock-режиме без единого боевого ключа.</li>
+            <li>~10 500 строк backend + ~13 400 строк Kotlin на мобильном клиенте, 20 контроллеров, 19 миграций БД.</li>
+          </ul>
+          <figure class="shot" style="overflow-x:auto; max-width:420px">
+            <div class="browser-chrome">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>admin.kasso.kg</div>
+            </div>
+            <div class="kmock">
+              <div class="kmock-sidebar">
+                <div class="kmock-brand"><span class="mark">K</span>Кассо · Admin</div>
+                <div class="kmock-nav">
+                  <div>Жалобы и споры</div>
+                  <div class="active">Проект</div>
+                  <div>Пользователи</div>
+                  <div>Аномалии</div>
+                  <div>Ниши (NicheConfig)</div>
+                  <div>Аудит-лог</div>
+                </div>
+              </div>
+              <div class="kmock-main">
+                <div class="kmock-topbar">TanyaKasso_dev · admin</div>
+                <div class="kmock-content">
+                  <h1>Просмотр проекта</h1>
+                  <div class="kmock-card">
+                    <h2>Ремонт квартиры, ул. Токтогула 45</h2>
+                    <dl class="kmock-detail-grid">
+                      <dt>ID</dt><dd class="mono">3f1c7a9e…b902</dd>
+                      <dt>Ниша</dt><dd>repair</dd>
+                      <dt>Статус</dt><dd><span class="kmock-badge">active</span></dd>
+                      <dt>Баланс</dt><dd>9 000 сом</dd>
+                    </dl>
+                  </div>
+                  <div class="kmock-card">
+                    <h2>Журнал операций</h2>
+                    <table>
+                      <thead><tr><th>Дата</th><th>Тип</th><th>Категория</th><th>Сумма</th><th>Способ</th><th>Статус</th><th>Чек</th></tr></thead>
+                      <tbody>
+                        <tr><td>12.09</td><td>расход</td><td>материалы</td><td>6 200 сом</td><td>наличные</td><td>подтверждено</td><td><a class="klink" href="#">фото</a></td></tr>
+                        <tr><td>10.09</td><td>предоплата</td><td>—</td><td>20 000 сом</td><td>перевод</td><td>подтверждено</td><td>—</td></tr>
+                        <tr><td>08.09</td><td>расход</td><td>работа</td><td>4 800 сом</td><td>наличные</td><td>подтверждено</td><td><a class="klink" href="#">фото</a></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption>admin — сотрудник платформы, компонент <code>ProjectPage</code> (пример данных)</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-smm); --fill: var(--fill-smm)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/></svg>
+          <div class="hero-device">
+            <div class="phone">
+              <div class="phone-screen tg-screen">
+                <div class="pmock-status" style="background:#4d7ea8;color:#fff"><span>9:41</span><span>●●●</span></div>
+                <div class="tg-header">
+                  <div class="tg-avatar">🤖</div>
+                  <div><div class="tg-name">Content Bot</div><div class="tg-sub">бот</div></div>
+                </div>
+                <div class="tg-body">
+                  <div class="tg-msg">
+                    <div class="tg-thumb"></div>
+                    <div class="tg-cap">«Летний диван Aurora — мягкость, которая держит форму» #мебель #интерьер</div>
+                    <div class="tg-time">18:02</div>
+                  </div>
+                  <div class="tg-actions">
+                    <div class="tg-action">✅ Опубликовать</div>
+                    <div class="tg-action">✏️ Изменить подпись</div>
+                    <div class="tg-action">⏭ Пропустить</div>
+                  </div>
+                  <div class="tg-msg me">Опубликовать<div class="tg-time">18:05</div></div>
+                  <div class="tg-msg">Готово. Пост выйдет в 19:00.<div class="tg-time">18:05</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">SMM / AI-автоматизация</div>
+            <h3>Автопилот для соцсетей</h3>
+            <p>AI пишет подписи и монтирует видео, человек в Telegram подтверждает публикацию</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Telegram-бот с человеком в контуре ведёт Instagram/Facebook небольшого мебельного бренда в Центральной Азии: подбирает фото из общей папки на Google Drive, пишет подписи и обложки через AI, собирает Ken Burns-видео из статики и присылает оператору на подтверждение перед публикацией.</p>
+          <div class="tags">
+            <span class="tag">Python / FastAPI</span><span class="tag">aiogram 3 (FSM)</span>
+            <span class="tag">SQLAlchemy async</span><span class="tag">Gemini AI</span><span class="tag">ffmpeg</span>
+          </div>
+          <ul class="highlights">
+            <li>Кроме команд, есть <b>роутер на естественном языке</b> — оператор может писать боту обычным текстом.</li>
+            <li>Два полностью готовых и протестированных бэкенда публикации (прямой Meta Graph API и Metricool) <b>сознательно оставлены выключенными</b> до прохождения Meta App Review — задокументированное решение «построить про запас, не тянуть скоуп».</li>
+            <li>~2200 строк тестов (123 теста, все внешние вызовы замоканы) на ~3000 строк прикладного кода.</li>
+            <li>Маскирование секретов в логах и graceful-деградация при отключённых интеграциях (Drive, Metricool, ffmpeg).</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-game); --fill: var(--fill-game)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3 20 7.5v9L12 21 4 16.5v-9Z"/><path d="M12 12v9M12 12 4 7.5M12 12l8-4.5"/></svg>
+          <div class="hero-device">
+            <div class="discord-frame">
+              <div class="discord-guilds"><div class="g active">S</div><div class="g">M</div></div>
+              <div class="discord-channels">
+                <div class="srv">Sun Network</div>
+                <div class="ch"># общий</div>
+                <div class="ch active"># account-link</div>
+                <div class="ch"># tickets</div>
+              </div>
+              <div class="discord-main">
+                <div class="discord-topbar"># account-link</div>
+                <div class="discord-msgs">
+                  <div class="discord-msg">
+                    <div class="av">☀</div>
+                    <div>
+                      <span class="name">SunShine</span><span class="tag">BOT</span>
+                      <div class="body">Аккаунт <b>Hikaru220</b> привязан к нику <b>Sun_Legend</b> ✅</div>
+                      <div class="embed">Доступ к тикетам поддержки открыт</div>
+                    </div>
+                  </div>
+                  <div class="discord-msg">
+                    <div class="av" style="background:#5865f2">SL</div>
+                    <div>
+                      <span class="name">Sun_Legend</span>
+                      <div class="body">как купить VIP-косметику?</div>
+                    </div>
+                  </div>
+                  <div class="discord-msg">
+                    <div class="av">☀</div>
+                    <div>
+                      <span class="name">SunShine</span><span class="tag">BOT</span>
+                      <div class="embed">Открыт тикет #482 — команда поддержки ответит скоро</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="discord-inputbar">Написать в #account-link</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Game dev / системы</div>
+            <h3>Sun Network</h3>
+            <p>19 самописных Java-плагинов: экономика, кросс-серверный relay, мост в Discord</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Инфраструктура собственной игровой сети: 19 самописных Java-плагинов (~22 000 строк) — экономика и косметика, кросс-серверная синхронизация, модерация и интеграция с Discord — вместо готовых решений с маркетплейса.</p>
+          <div class="tags">
+            <span class="tag">Java 21</span><span class="tag">Paper API</span><span class="tag">Maven / Gradle</span>
+            <span class="tag">MySQL</span><span class="tag">JDA (Discord)</span>
+          </div>
+          <ul class="highlights">
+            <li><b>Кросс-серверный relay</b> поверх общих таблиц MySQL с асинхронным поллингом — три плагина синхронизации переиспользуют один паттерн вместо Redis.</li>
+            <li>SunShine — мост Paper↔Discord на JDA: привязка аккаунтов, заявки в стаф, встроенный тикет-бот поддержки (~3100 строк).</li>
+            <li>SunArtifacts — система магических артефактов с уникальными в мире предметами и структурными анлоками (~9100 строк, самый крупный плагин сети).</li>
+            <li><b>Восстановление потерянного исходника</b> экономического плагина: декомпиляция через CFR и ручной патч байткод-производного кода для новой фичи.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="section-title" style="margin-bottom:10px">Контакты</div>
+    <div class="contact-row">
+      <p class="contact-note">Открыт для фриланс-проектов и стажировок — пишите в Telegram, отвечаю быстро.</p>
+      <div class="links">
+        <a class="contact-primary" href="https://t.me/H1karu_2" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.8 19.6c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9L18 6.6c.4-.4-.1-.6-.6-.2L7.5 12.8l-4.8-1.5c-1-.3-1-1 .2-1.5L20.6 3c.8-.3 1.6.2 1.3 1.3Z"/></svg>
+          Telegram · @H1karu_2
+        </a>
+        <a href="https://github.com/Hikaru220" target="_blank" rel="noopener">github.com/Hikaru220</a>
+        <a href="https://github.com/Hikaru220/My-Work" target="_blank" rel="noopener">github.com/Hikaru220/My-Work</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
