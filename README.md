@@ -39,6 +39,7 @@
 - Билингвальный интерфейс (RU/KY) и уведомления о новых откликах в WhatsApp, Telegram и web-push
 
 ![Mebel Work — главная страница живого сайта](images/mebelwork-screenshot.jpg)
+![Mebel Work — лента заявок для мастеров](images/mebelwork-requests.jpg)
 
 ### Vanvi — платформа онлайн-курса
 `Node.js/Express` `SQLite` `JWT + Google OAuth` `Python (сборка контента)` `nginx/systemd/VPS`
