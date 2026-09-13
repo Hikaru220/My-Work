@@ -1,0 +1,566 @@
+<title>Шлюз С-7</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #0B0F14;
+    --panel: #121A22;
+    --panel-2: #182430;
+    --text: #DCE6EC;
+    --text-dim: #7C93A3;
+    --text-faint: #4F6272;
+    --border: #223140;
+    --accent: #E8A33D;
+    --accent-soft: #2B2011;
+    --good: #3FBF8F;
+    --good-soft: #10241D;
+    --bad: #E85D5D;
+    --bad-soft: #2A1414;
+    --shadow: rgba(0,0,0,0.5);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #F2F5F7;
+      --panel: #FFFFFF;
+      --panel-2: #E8EDF1;
+      --text: #16222B;
+      --text-dim: #52697A;
+      --text-faint: #8398A6;
+      --border: #D7E0E6;
+      --accent: #B97418;
+      --accent-soft: #FBEBD3;
+      --good: #1F8F68;
+      --good-soft: #DDF0E6;
+      --bad: #C63F3F;
+      --bad-soft: #FBE1E1;
+      --shadow: rgba(30,40,50,0.12);
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #F2F5F7; --panel: #FFFFFF; --panel-2: #E8EDF1; --text: #16222B;
+    --text-dim: #52697A; --text-faint: #8398A6; --border: #D7E0E6;
+    --accent: #B97418; --accent-soft: #FBEBD3; --good: #1F8F68; --good-soft: #DDF0E6;
+    --bad: #C63F3F; --bad-soft: #FBE1E1; --shadow: rgba(30,40,50,0.12);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B0F14; --panel: #121A22; --panel-2: #182430; --text: #DCE6EC;
+    --text-dim: #7C93A3; --text-faint: #4F6272; --border: #223140;
+    --accent: #E8A33D; --accent-soft: #2B2011; --good: #3FBF8F; --good-soft: #10241D;
+    --bad: #E85D5D; --bad-soft: #2A1414; --shadow: rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55; -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent-soft); color: var(--text); }
+  h1, h2, h3 { font-family: "Rajdhani", "IBM Plex Sans", sans-serif; text-wrap: balance; margin: 0; letter-spacing: 0.01em; }
+  code, .mono { font-family: "JetBrains Mono", monospace; }
+  a { color: var(--accent); }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ---------- Status bar ---------- */
+  .statusbar {
+    position: sticky; top: 0; z-index: 5;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 12px 20px;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--border);
+    font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--text-dim);
+  }
+  .statusbar .tag { display: flex; align-items: center; gap: 8px; }
+  .statusbar .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); flex: none; }
+  .statusbar .dot.ok { background: var(--good); box-shadow: 0 0 0 3px var(--good-soft); }
+  #progress-label { font-variant-numeric: tabular-nums; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 40px 0 8px; }
+  .hero .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); }
+  .hero h1 { font-size: clamp(2.1rem, 6vw, 2.8rem); font-weight: 700; margin-top: 8px; }
+  .hero p { color: var(--text-dim); max-width: 60ch; margin-top: 12px; font-size: 15px; }
+
+  .brief {
+    margin-top: 20px; padding: 16px 18px;
+    background: var(--panel); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 6px; font-size: 14px; color: var(--text-dim);
+  }
+  .brief b { color: var(--text); }
+
+  /* ---------- Section headers ---------- */
+  .section-head {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 52px 0 18px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+  .section-head .idx { font-family: "JetBrains Mono", monospace; color: var(--text-faint); font-size: 13px; }
+  .section-head h2 { font-size: 1.4rem; }
+
+  /* ---------- Part 1: log entry ---------- */
+  .logline { margin-bottom: 18px; }
+  .logline .q { font-weight: 600; color: var(--text); font-size: 14.5px; margin-bottom: 6px; }
+  .logline .a { color: var(--text-dim); font-size: 14.5px; max-width: 68ch; }
+
+  /* ---------- Part 2: mechanic spec cards ---------- */
+  .mech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) { .mech-grid { grid-template-columns: 1fr; } }
+  .mech-card { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; }
+  .mech-card h3 { font-size: 1.05rem; color: var(--accent); }
+  .mech-card dl { margin: 10px 0 0; display: grid; gap: 6px; font-size: 13.5px; }
+  .mech-card dt { color: var(--text-faint); font-family: "JetBrains Mono", monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .mech-card dd { margin: 0 0 4px; color: var(--text-dim); }
+
+  /* ---------- Part 3: mission steps ---------- */
+  .step {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+    margin-bottom: 16px; overflow: hidden;
+  }
+  .step-head {
+    display: flex; align-items: center; gap: 10px; padding: 12px 16px;
+    background: var(--panel-2); border-bottom: 1px solid var(--border);
+  }
+  .step-num {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--bg);
+    background: var(--text-faint); width: 22px; height: 22px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; flex: none;
+  }
+  .step.done .step-num { background: var(--good); }
+  .step-type {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-dim);
+  }
+  .step-goal { margin-left: auto; font-size: 12.5px; color: var(--text-faint); text-align: right; }
+  .step-body { padding: 16px; }
+  .step-instr { font-size: 14.5px; color: var(--text); margin-bottom: 12px; }
+
+  pre.code {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    padding: 12px 14px; font-family: "JetBrains Mono", monospace; font-size: 12.5px;
+    color: var(--text-dim); overflow-x: auto; margin: 0 0 12px;
+  }
+  pre.code .tag { color: var(--accent); }
+  pre.code .str { color: var(--good); }
+  pre.code.clickable-lines div { cursor: pointer; padding: 1px 4px; margin: 0 -4px; border-radius: 3px; }
+  pre.code.clickable-lines div:hover { background: var(--panel-2); }
+  pre.code .flag-bad { background: var(--bad-soft) !important; color: var(--bad); }
+  pre.code .flag-good { background: var(--good-soft) !important; color: var(--good); }
+
+  .choices { display: grid; gap: 8px; }
+  .choice-btn {
+    text-align: left; padding: 10px 12px; border-radius: 6px;
+    border: 1px solid var(--border); background: var(--bg); color: var(--text);
+    font: inherit; font-size: 13.5px; cursor: pointer;
+  }
+  .choice-btn:hover:not(:disabled) { border-color: var(--accent); }
+  .choice-btn:disabled { cursor: default; }
+  .choice-btn.correct { border-color: var(--good); background: var(--good-soft); color: var(--good); }
+  .choice-btn.wrong { border-color: var(--bad); background: var(--bad-soft); color: var(--bad); }
+
+  .match-wrap { display: flex; flex-wrap: wrap; gap: 20px; }
+  .match-pool { display: flex; flex-wrap: wrap; gap: 8px; flex: 1 1 220px; }
+  .chip {
+    padding: 7px 12px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--text); font-size: 13px; cursor: pointer;
+  }
+  .chip.armed { border-color: var(--accent); background: var(--accent-soft); }
+  .chip.placed { opacity: 0.35; cursor: default; }
+  .bins { display: flex; flex-direction: column; gap: 10px; flex: 1 1 260px; }
+  .bin {
+    border: 1px dashed var(--border); border-radius: 8px; padding: 10px 12px; min-height: 46px;
+    font-size: 13px;
+  }
+  .bin-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .bin .placed-chip { display: inline-block; margin: 2px 6px 2px 0; padding: 4px 10px; border-radius: 999px; font-size: 12.5px; }
+  .bin .placed-chip.correct { background: var(--good-soft); color: var(--good); }
+  .bin .placed-chip.wrong { background: var(--bad-soft); color: var(--bad); }
+
+  .why {
+    margin-top: 12px; padding: 10px 12px; border-radius: 6px;
+    background: var(--panel-2); border-left: 3px solid var(--text-faint);
+    font-size: 13px; color: var(--text-dim); display: none;
+  }
+  .why.show { display: block; }
+  .why b { color: var(--text); }
+  .why.good-border { border-left-color: var(--good); }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12.5px; color: var(--text-faint); font-family: "JetBrains Mono", monospace; }
+</style>
+
+<div class="statusbar">
+  <span class="tag"><span class="dot ok"></span>СТАНЦИЯ · ШЛЮЗ С-7</span>
+  <span id="progress-label" class="tag">ПРОЙДЕНО МОДУЛЕЙ: 0 / 10</span>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Тестовое задание · Методист/автор курса по вайбкодингу</div>
+    <h1>Шлюз С-7 не узнаёт экипаж</h1>
+    <p>Прототип учебной задачи для ЮзКОД — прохождение части 3 в интерактивном виде, плюс ответы на часть 1 и разбор механик из части 2.</p>
+  </header>
+
+  <div class="section-head"><span class="idx">01</span><h2>Часть 1 — знакомство с ЮзКОД</h2></div>
+
+  <div class="logline">
+    <div class="q">Какие форматы заданий показались удачными, а какие — спорными?</div>
+    <div class="a">Удачным — «Живой редактор»: сразу видно, как код превращается в результат, это хорошо цепляет на старте. Спорным — «Сопоставление терминов»: механика работает на память «что было сказано только что», а не на понимание, задание можно пройти не вдумываясь.</div>
+  </div>
+  <div class="logline">
+    <div class="q">Что бы вы улучшили и почему?</div>
+    <div class="a">В сопоставлении добавил бы шаг с объяснением своими словами, почему термин подходит именно сюда — так проверяется понимание, а не внимательность к тексту, который был показан секундой раньше.</div>
+  </div>
+
+  <div class="section-head"><span class="idx">02</span><h2>Часть 2 — типы подзадач</h2></div>
+
+  <div class="mech-grid">
+    <div class="mech-card">
+      <h3>Живой редактор</h3>
+      <dl>
+        <dt>Видит</dt><dd>вкладки с готовым кодом и предпросмотр рядом</dd>
+        <dt>Действие</dt><dd>нажимает элемент, наблюдает, как код меняет отображение</dd>
+        <dt>Проверка</dt><dd>сработало ли ожидаемое поведение</dd>
+        <dt>Подходит для</dt><dd>связки код ↔ результат, DOM-событий</dd>
+      </dl>
+    </div>
+    <div class="mech-card">
+      <h3>Сопоставление терминов</h3>
+      <dl>
+        <dt>Видит</dt><dd>текст с объяснением + пропуски + блоки-термины</dd>
+        <dt>Действие</dt><dd>перетаскивает термин в нужный пропуск</dd>
+        <dt>Проверка</dt><dd>совпадает ли термин с текстом выше</dd>
+        <dt>Подходит для</dt><dd>закрепления «понятие ↔ роль»</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="section-head"><span class="idx">03</span><h2>Часть 3 — учебная задача (пройдите сами)</h2></div>
+
+  <!-- STEP 1 -->
+  <article class="step" data-step="1">
+    <div class="step-head">
+      <span class="step-num">1</span>
+      <span class="step-type">Сопоставление терминов</span>
+      <span class="step-goal">зачем нужен section</span>
+    </div>
+    <div class="step-body">
+      <div class="step-instr">Сопоставь HTML-тег с тем, для чего он используется.</div>
+      <div class="match-wrap">
+        <div class="match-pool">
+          <span class="chip" data-correct="role">section</span>
+          <span class="chip" data-correct="box">div</span>
+          <span class="chip" data-correct="head">h1</span>
+          <span class="chip" data-correct="text">p</span>
+        </div>
+        <div class="bins">
+          <div class="bin" data-bin="role"><div class="bin-label">Отдельный смысловой блок</div></div>
+          <div class="bin" data-bin="box"><div class="bin-label">Контейнер без своей роли</div></div>
+          <div class="bin" data-bin="head"><div class="bin-label">Главный заголовок</div></div>
+          <div class="bin" data-bin="text"><div class="bin-label">Абзац текста</div></div>
+        </div>
+      </div>
+      <div class="why">Почему: <b>section</b> группирует логически связанный контент в отдельный блок — в отличие от <b>div</b>, у которого нет собственной смысловой роли.</div>
+    </div>
+  </article>
+
+  <!-- STEP 2 -->
+  <article class="step" data-step="2">
+    <div class="step-head">
+      <span class="step-num">2</span>
+      <span class="step-type">Живой редактор</span>
+      <span class="step-goal">понять проблему</span>
+    </div>
+    <div class="step-body">
+      <pre class="code">&lt;body&gt;
+  &lt;h1&gt;Твоё Имя&lt;/h1&gt;
+  &lt;p&gt;Оператор интерфейсов станции&lt;/p&gt;
+&lt;/body&gt;</pre>
+      <div class="step-instr">Посмотри на код своей страницы. Чего в нём не хватает, чтобы дверь поняла, что проверка профиля началась?</div>
+      <div class="choices">
+        <button class="choice-btn" data-correct="false">Не хватает нового h1</button>
+        <button class="choice-btn" data-correct="true">Не хватает блока со статусом</button>
+        <button class="choice-btn" data-correct="false">Не хватает нового файла CSS</button>
+      </div>
+      <div class="why">Почему: в коде есть только заголовок и роль — блока про статус проверки нет вообще.</div>
+    </div>
+  </article>
+
+  <!-- STEP 3 -->
+  <article class="step" data-step="3">
+    <div class="step-head">
+      <span class="step-num">3</span>
+      <span class="step-type">Сопоставление терминов</span>
+      <span class="step-goal">правда vs выдумка Киби</span>
+    </div>
+    <div class="step-body">
+      <div class="step-instr">Раздели утверждения на правду и то, что Киби не должен выдумывать.</div>
+      <div class="match-wrap">
+        <div class="match-pool">
+          <span class="chip" data-correct="truth">Профиль отправлен на проверку</span>
+          <span class="chip" data-correct="lie">Доступ разрешён</span>
+          <span class="chip" data-correct="truth">Имя и роль игрока</span>
+          <span class="chip" data-correct="lie">Капитан лично одобрил доступ</span>
+        </div>
+        <div class="bins">
+          <div class="bin" data-bin="truth"><div class="bin-label">Правда</div></div>
+          <div class="bin" data-bin="lie"><div class="bin-label">Киби не должен выдумывать</div></div>
+        </div>
+      </div>
+      <div class="why">Почему: проверка данных ещё не завершена — значит «доступ разрешён» и «капитан одобрил» это вымысел, а не факт.</div>
+    </div>
+  </article>
+
+  <!-- STEP 4 -->
+  <article class="step" data-step="4">
+    <div class="step-head">
+      <span class="step-num">4</span>
+      <span class="step-type">Сопоставление терминов</span>
+      <span class="step-goal">контекст и ограничения для ИИ</span>
+    </div>
+    <div class="step-body">
+      <div class="step-instr">Сопоставь формулировку задачи для Киби с оценкой её качества.</div>
+      <div class="match-wrap">
+        <div class="match-pool">
+          <span class="chip" data-correct="bad">«Сделай красиво»</span>
+          <span class="chip" data-correct="good">«Добавь в index.html после p блок section с заголовком «Статус доступа» и текстом «Профиль отправлен на проверку», не трогая остальной код»</span>
+        </div>
+        <div class="bins">
+          <div class="bin" data-bin="good"><div class="bin-label">Хорошая формулировка</div></div>
+          <div class="bin" data-bin="bad"><div class="bin-label">Плохая формулировка</div></div>
+        </div>
+      </div>
+      <div class="why">Почему: хорошая формулировка называет файл, место вставки, точный текст и что нельзя менять — оставляя ИИ минимум простора для додумывания.</div>
+    </div>
+  </article>
+
+  <!-- STEP 5 -->
+  <article class="step" data-step="5">
+    <div class="step-head">
+      <span class="step-num">5</span>
+      <span class="step-type">Живой редактор</span>
+      <span class="step-goal">составить запрос Киби</span>
+    </div>
+    <div class="step-body">
+      <div class="step-instr">Выбери формулировку, которая точно опишет Киби нужное изменение.</div>
+      <div class="choices">
+        <button class="choice-btn" data-correct="false">«Сделай так, чтобы дверь работала»</button>
+        <button class="choice-btn" data-correct="true">«Добавь в index.html после текущего p блок section с h2 «Статус доступа» и p «Профиль отправлен на проверку», остальной код не трогай»</button>
+        <button class="choice-btn" data-correct="false">«Напиши что доступ разрешён»</button>
+      </div>
+      <div class="why">Почему: только второй вариант называет файл, место, точный текст и явное ограничение — как решили в шаге 4.</div>
+    </div>
+  </article>
+
+  <!-- STEP 6 -->
+  <article class="step" data-step="6">
+    <div class="step-head">
+      <span class="step-num">6</span>
+      <span class="step-type">Живой редактор</span>
+      <span class="step-goal">проверить код Киби</span>
+    </div>
+    <div class="step-body">
+      <div class="step-instr">Киби предложил этот код. Нажми на строку, которая лишняя или неверна.</div>
+      <pre class="code clickable-lines">
+<div data-correct="false">&lt;section&gt;</div><div data-correct="false">  &lt;h2&gt;Статус доступа&lt;/h2&gt;</div><div data-correct="false">  &lt;p&gt;Профиль отправлен на проверку&lt;/p&gt;</div><div data-correct="false">&lt;/section&gt;</div><div data-correct="true">&lt;p&gt;Доступ разрешён&lt;/p&gt;</div></pre>
+      <div class="why">Почему: это та же ложь, что отметили в шаге 3 — проверка ещё не завершена.</div>
+    </div>
+  </article>
+
+  <!-- STEP 7 -->
+  <article class="step" data-step="7">
+    <div class="step-head">
+      <span class="step-num">7</span>
+      <span class="step-type">Сопоставление терминов</span>
+      <span class="step-goal">отклонить лишнее</span>
+    </div>
+    <div class="step-body">
+      <div class="step-instr">Сопоставь каждую строку кода с правильным действием.</div>
+      <div class="match-wrap">
+        <div class="match-pool">
+          <span class="chip" data-correct="accept">&lt;section&gt;…&lt;/section&gt; (блок статуса)</span>
+          <span class="chip" data-correct="reject">&lt;p&gt;Доступ разрешён&lt;/p&gt;</span>
+        </div>
+        <div class="bins">
+          <div class="bin" data-bin="accept"><div class="bin-label">Принять</div></div>
+          <div class="bin" data-bin="reject"><div class="bin-label">Отклонить</div></div>
+        </div>
+      </div>
+      <div class="why">Почему: блок статуса честно отражает состояние проверки, вторая строка — нет.</div>
+    </div>
+  </article>
+
+  <!-- STEP 8 -->
+  <article class="step" data-step="8">
+    <div class="step-head">
+      <span class="step-num">8</span>
+      <span class="step-type">Живой редактор</span>
+      <span class="step-goal">внести правку</span>
+    </div>
+    <div class="step-body">
+      <div class="step-instr">Нажми «Вставить блок», чтобы добавить принятую правку в index.html.</div>
+      <pre class="code" id="s8-code">&lt;body&gt;
+  &lt;h1&gt;Твоё Имя&lt;/h1&gt;
+  &lt;p&gt;Оператор интерфейсов станции&lt;/p&gt;
+&lt;/body&gt;</pre>
+      <div class="choices">
+        <button class="choice-btn" id="s8-insert" data-correct="true">Вставить блок section</button>
+      </div>
+      <div class="why">Почему: это единственная правка, прошедшая проверку на честность в шагах 3 и 7.</div>
+    </div>
+  </article>
+
+  <!-- STEP 9 -->
+  <article class="step" data-step="9">
+    <div class="step-head">
+      <span class="step-num">9</span>
+      <span class="step-type">Живой редактор</span>
+      <span class="step-goal">проверить результат</span>
+    </div>
+    <div class="step-body">
+      <pre class="code">&lt;body&gt;
+  &lt;h1&gt;Твоё Имя&lt;/h1&gt;
+  &lt;p&gt;Оператор интерфейсов станции&lt;/p&gt;
+  &lt;section&gt;
+    &lt;h2&gt;Статус доступа&lt;/h2&gt;
+    &lt;p&gt;Профиль отправлен на проверку&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/body&gt;</pre>
+      <div class="step-instr">Проверь: показывает ли страница имя, роль, заголовок «Статус доступа» и текст «Профиль отправлен на проверку»?</div>
+      <div class="choices">
+        <button class="choice-btn" data-correct="true">Да, все четыре элемента на месте</button>
+        <button class="choice-btn" data-correct="false">Нет, чего-то не хватает</button>
+      </div>
+      <div class="why">Почему: код содержит все четыре элемента — правка из шага 8 сработала.</div>
+    </div>
+  </article>
+
+  <!-- STEP 10 -->
+  <article class="step" data-step="10">
+    <div class="step-head">
+      <span class="step-num">10</span>
+      <span class="step-type">Сопоставление терминов</span>
+      <span class="step-goal">критерии готовности</span>
+    </div>
+    <div class="step-body">
+      <div class="step-instr">Отметь, какие пункты — реальные критерии того, что задача выполнена.</div>
+      <div class="match-wrap">
+        <div class="match-pool">
+          <span class="chip" data-correct="yes">Страница показывает честный статус, а не «Доступ разрешён»</span>
+          <span class="chip" data-correct="no">Капитан доволен</span>
+          <span class="chip" data-correct="yes">В коде есть section с нужным текстом</span>
+          <span class="chip" data-correct="no">Киби использовал ИИ</span>
+        </div>
+        <div class="bins">
+          <div class="bin" data-bin="yes"><div class="bin-label">Критерий готовности</div></div>
+          <div class="bin" data-bin="no"><div class="bin-label">Не критерий</div></div>
+        </div>
+      </div>
+      <div class="why">Почему: готовность определяется честностью данных и кодом, а не мнением персонажа или фактом использования ИИ.</div>
+    </div>
+  </article>
+
+  <footer>шлюз С-7 · журнал проверки профиля · вайбкодинг тестовое</footer>
+
+</div>
+
+<script>
+  let doneCount = 0;
+  const progressLabel = document.getElementById('progress-label');
+
+  function markDone(step) {
+    if (step.classList.contains('done')) return;
+    step.classList.add('done');
+    doneCount++;
+    progressLabel.textContent = `ПРОЙДЕНО МОДУЛЕЙ: ${doneCount} / 10`;
+  }
+
+  function showWhy(step, good) {
+    const why = step.querySelector('.why');
+    why.classList.add('show');
+    why.classList.toggle('good-border', good);
+  }
+
+  // Multiple choice (also used for step 6's clickable lines and step 8's insert button)
+  document.querySelectorAll('.choices').forEach(box => {
+    box.addEventListener('click', e => {
+      const btn = e.target.closest('.choice-btn');
+      if (!btn || btn.disabled) return;
+      const step = box.closest('.step');
+      const correct = btn.dataset.correct === 'true';
+      box.querySelectorAll('.choice-btn').forEach(b => b.disabled = true);
+      btn.classList.add(correct ? 'correct' : 'wrong');
+      if (correct) { markDone(step); showWhy(step, true); }
+      else {
+        const rightBtn = [...box.querySelectorAll('.choice-btn')].find(b => b.dataset.correct === 'true');
+        if (rightBtn) rightBtn.classList.add('correct');
+        showWhy(step, false);
+      }
+    });
+  });
+
+  // Step 6: clickable code lines
+  document.querySelectorAll('pre.clickable-lines').forEach(pre => {
+    pre.addEventListener('click', e => {
+      const line = e.target.closest('div');
+      if (!line || pre.dataset.locked) return;
+      pre.dataset.locked = '1';
+      const step = pre.closest('.step');
+      const correct = line.dataset.correct === 'true';
+      line.classList.add(correct ? 'flag-good' : 'flag-bad');
+      if (!correct) {
+        const rightLine = [...pre.querySelectorAll('div')].find(d => d.dataset.correct === 'true');
+        if (rightLine) rightLine.classList.add('flag-good');
+      }
+      markDone(step);
+      showWhy(step, correct);
+    });
+  });
+
+  // Step 8: insert block button
+  const s8btn = document.getElementById('s8-insert');
+  if (s8btn) {
+    s8btn.addEventListener('click', () => {
+      const codeEl = document.getElementById('s8-code');
+      codeEl.textContent = codeEl.textContent.replace(
+        '  <p>Оператор интерфейсов станции</p>\n</body>',
+        '  <p>Оператор интерфейсов станции</p>\n  <section>\n    <h2>Статус доступа</h2>\n    <p>Профиль отправлен на проверку</p>\n  </section>\n</body>'
+      );
+    });
+  }
+
+  // Term matching (sort chips into bins)
+  document.querySelectorAll('.match-wrap').forEach(wrap => {
+    const step = wrap.closest('.step');
+    let armed = null;
+    let correctCount = 0;
+    const total = wrap.querySelectorAll('.chip').length;
+
+    wrap.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        if (chip.classList.contains('placed')) return;
+        wrap.querySelectorAll('.chip').forEach(c => c.classList.remove('armed'));
+        armed = chip;
+        chip.classList.add('armed');
+      });
+    });
+
+    wrap.querySelectorAll('.bin').forEach(bin => {
+      bin.addEventListener('click', () => {
+        if (!armed) return;
+        const correct = armed.dataset.correct === bin.dataset.bin;
+        const label = document.createElement('span');
+        label.className = 'placed-chip ' + (correct ? 'correct' : 'wrong');
+        label.textContent = armed.textContent;
+        bin.appendChild(label);
+        armed.classList.add('placed');
+        armed.classList.remove('armed');
+        armed = null;
+        correctCount += correct ? 1 : 0;
+        if (wrap.querySelectorAll('.chip.placed').length === total) {
+          markDone(step);
+          showWhy(step, correctCount === total);
+        }
+      });
+    });
+  });
+</script>
