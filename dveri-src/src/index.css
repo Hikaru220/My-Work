@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #f6f1e7;
+  --color-canvas-deep: #ece2d0;
+  --color-canvas-dusk: #201a15;
+  --color-ink: #241f1a;
+  --color-ink-soft: #54473a;
+  --color-ink-faint: #8a7c68;
+  --color-accent: #a8562e;
+  --color-accent-soft: #c98456;
+  --color-accent-deep: #7c3f21;
+  --color-olive: #4b5842;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-deep: #1da851;
+  --color-line: #241f1a1f;
+  --color-cream-line: #f6f1e733;
+
+  --font-display: "Playfair Display", "Georgia", serif;
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+
+  --ease-quiet: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--color-canvas);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-canvas);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  .label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .hairline {
+    box-shadow: 0 1px 0 0 var(--color-line);
+  }
+  .hairline-top {
+    box-shadow: 0 -1px 0 0 var(--color-line);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fab-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+.fab-ring::before,
+.fab-ring::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: var(--color-whatsapp);
+  animation: fab-ring 2.6s var(--ease-quiet) infinite;
+  will-change: transform, opacity;
+}
+
+.fab-ring::after {
+  animation-delay: 1.3s;
+}
+
+@keyframes rise-in {
+  from {
+    transform: translateY(1.25rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.rise-in {
+  animation: rise-in 0.9s var(--ease-quiet) both;
+}
+
