@@ -23,34 +23,38 @@
   </nav>
 
   <header class="hero">
-    <div class="hero-top">
-      <div class="hero-graphic">
-        <svg viewBox="0 0 220 220" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="24" y="24" width="150" height="150" stroke-width="2.5"/>
-          <g stroke-width="7" transform="translate(118,118)">
-            <path d="M16 12 5 26 16 40"/>
-            <path d="M30 6 22 46"/>
-            <path d="M44 12 55 26 44 40"/>
-          </g>
-        </svg>
+    <canvas id="net-bg" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <div class="hero-top">
+        <div class="hero-graphic">
+          <svg viewBox="0 0 220 220" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="24" y="24" width="150" height="150" stroke-width="2.5"/>
+            <g stroke-width="7" transform="translate(118,118)">
+              <path d="M16 12 5 26 16 40"/>
+              <path d="M30 6 22 46"/>
+              <path d="M44 12 55 26 44 40"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <h1>Привет, я Hikaru220<span class="accent-dot">.</span></h1>
+          <div class="role">Full-stack <b>&amp; Mobile</b></div>
+        </div>
       </div>
-      <div>
-        <h1>Привет, я Hikaru220<span class="accent-dot">.</span></h1>
-        <div class="role">Full-stack <b>&amp; Mobile</b></div>
+
+      <div class="avail"><span class="dot"></span>Открыт для фриланс-проектов и стажировок — набираю опыт</div>
+      <p class="lede">Веб, бэкенд, мобильные приложения и игровые серверы — на пяти языках. Ниже не лендинги, а рабочий код с настоящими пользователями, деньгами и деплоями.</p>
+
+      <div class="stat-strip">
+        <div class="stat"><b>6</b><span>проектов</span></div>
+        <div class="stat"><b>≈94 000</b><span>строк кода</span></div>
+        <div class="stat"><b>5</b><span>языков: JS/TS, Python, Kotlin, Java, SQL</span></div>
+        <div class="stat"><b>19</b><span>плагинов в одной только игровой сети</span></div>
       </div>
-    </div>
-
-    <div class="avail"><span class="dot"></span>Открыт для фриланс-проектов и стажировок — набираю опыт</div>
-    <p class="lede">Веб, бэкенд, мобильные приложения и игровые серверы — на пяти языках. Ниже не лендинги, а рабочий код с настоящими пользователями, деньгами и деплоями.</p>
-
-    <div class="stat-strip">
-      <div class="stat"><b>6</b><span>проектов</span></div>
-      <div class="stat"><b>≈94 000</b><span>строк кода</span></div>
-      <div class="stat"><b>5</b><span>языков: JS/TS, Python, Kotlin, Java, SQL</span></div>
-      <div class="stat"><b>19</b><span>плагинов в одной только игровой сети</span></div>
     </div>
   </header>
 </div>
+<script src="bg.js" defer></script>
 
 <div class="marquee-wrap">
   <div class="marquee-track">
