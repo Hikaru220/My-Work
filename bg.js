@@ -21,25 +21,26 @@
   var w = 0, h = 0, dpr = 1;
   var points = [];
   var rafId = null;
-  var COUNT = 42;
+  var DENSITY = 0.00009; // points per CSS pixel of viewport area
+  var MIN_COUNT = 26;
+  var MAX_COUNT = 70;
   var LINK_DIST = 130;
   var LINK_DIST_SQ = LINK_DIST * LINK_DIST;
 
   function resize() {
-    var rect = canvas.parentElement.getBoundingClientRect();
     dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w = Math.max(1, Math.round(rect.width));
-    h = Math.max(1, Math.round(rect.height));
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    canvas.style.width = w + "px";
-    canvas.style.height = h + "px";
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.width = Math.max(1, Math.round(w * dpr));
+    canvas.height = Math.max(1, Math.round(h * dpr));
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   function initPoints() {
+    var count = Math.round(w * h * DENSITY);
+    count = Math.max(MIN_COUNT, Math.min(MAX_COUNT, count));
     points = [];
-    for (var i = 0; i < COUNT; i++) {
+    for (var i = 0; i < count; i++) {
       points.push({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -98,6 +99,7 @@
   }
 
   function start() {
+    if (document.hidden) return;
     if (reduceMotion) {
       drawFrame();
       return;
@@ -114,16 +116,6 @@
       if (reduceMotion) drawFrame();
     }, 150);
   });
-
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) start();
-        else stop();
-      });
-    });
-    io.observe(canvas);
-  }
 
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) stop();
