@@ -180,7 +180,7 @@
   }
   .category-hero__content {
     padding-right: var(--gutter);
-    padding-bottom: calc(84px + env(safe-area-inset-bottom) + 28px);
+    padding-bottom: calc(82px + env(safe-area-inset-bottom) + 20px);
   }
   .category-hero__arrows {
     right: 14px;

@@ -26,11 +26,10 @@ export default function WhatsAppFloat() {
       <a href={href} target="_blank" rel="noreferrer" className="wa-bar" aria-label="Написать в WhatsApp">
         <span className="wa-bar__pulse" aria-hidden="true" />
         <span className="wa-bar__icon">
-          <IconWhatsApp width={26} height={26} />
+          <IconWhatsApp width={20} height={20} />
         </span>
         <span className="wa-bar__text">
           <span className="wa-bar__title">Написать в WhatsApp</span>
-          <span className="wa-bar__sub">Ответим сегодня</span>
         </span>
       </a>
     </>
