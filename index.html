@@ -26,6 +26,7 @@
     --c-game: #F6C445;     /* Game dev — Sun Network */
     --c-market: #5B9BFF;   /* Маркетплейс — Mebel Work */
     --c-doors: #E2916A;    /* Дизайн/лендинг — Верея */
+    --c-kraft: #D9A94A;    /* Дизайн/лендинг — KRAFT */
 
     /* Fixed deep fills for hero-band panels (white text on top) — same in both themes */
     --fill-edu: #0E7A69;
@@ -35,6 +36,7 @@
     --fill-game: #8A6A12;
     --fill-market: #1B4FBF;
     --fill-doors: #7C3F21;
+    --fill-kraft: #6B4E1E;
   }
 
   @media (prefers-color-scheme: light) {
@@ -56,6 +58,7 @@
       --c-game: #A67908;
       --c-market: #1D57C9;
       --c-doors: #A8562E;
+      --c-kraft: #8A6018;
     }
   }
 
@@ -77,6 +80,7 @@
     --c-game: #A67908;
     --c-market: #1D57C9;
     --c-doors: #A8562E;
+    --c-kraft: #8A6018;
   }
 
   :root[data-theme="dark"] {
@@ -97,6 +101,7 @@
     --c-game: #F6C445;
     --c-market: #5B9BFF;
     --c-doors: #E2916A;
+    --c-kraft: #D9A94A;
   }
 
   * { box-sizing: border-box; }
@@ -1130,7 +1135,7 @@
 
   <section class="projects">
     <div class="section-title">Дизайн на заказ</div>
-    <p style="margin:-6px 0 22px; font-size:14.5px; color:var(--text-dim); max-width:60ch;">Отдельно от продакшен-систем выше — лендинг, который я собрал как образец фронтенда для клиентского проекта, а не рабочая система с пользователями.</p>
+    <p style="margin:-6px 0 22px; font-size:14.5px; color:var(--text-dim); max-width:60ch;">Отдельно от продакшен-систем выше — два лендинга для одного и того же типа клиента (дверной бизнес), в контрастных стилях, как пример работы над образом бренда, а не рабочие системы с пользователями.</p>
 
     <div class="card-list">
 
@@ -1163,6 +1168,39 @@
             <li>Плавающая кнопка WhatsApp не пропадает ни на одном экране: полноширинная плашка на телефоне, пилюля с пульсацией на десктопе.</li>
             <li>Мобильный хедер сворачивает всё, что не помещается, в полноэкранное меню по гамбургеру.</li>
             <li>Скролл-хореография на <code>Motion</code> (<code>whileInView</code>, <code>useScroll</code>) — параллакс на фото, отключается по <code>prefers-reduced-motion</code>.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-kraft); --fill: var(--fill-kraft)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 21V7l8-4 8 4v14"/><path d="M4 21h16"/><path d="M14 21v-6h-4v6"/></svg>
+          <div class="hero-device">
+            <div class="shot" style="width:360px">
+              <div class="browser-chrome">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><a href="kraft-doors/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none">hikaru220.github.io/My-Work/kraft-doors</a></div>
+              </div>
+              <img src="images/kraft-screenshot.jpg" alt="Главный экран лендинга KRAFT — дверная мануфактура" loading="lazy">
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Лендинг на заказ · второй стиль</div>
+            <h3>KRAFT — двери</h3>
+            <p>Тот же тип клиента, контрастный образ: тёмная мануфактура вместо тихого шоурума</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Второй вариант оформления для дверного бизнеса — сознательный контраст с «Тишиной» Вереи: тёмный, редакторский, с видео вместо статичных фото. Не одна лендинг-страница, а полноценный мини-сайт на клиентском роутинге — отдельные разделы каталога, производства и материалов на каждую категорию дверей.</p>
+          <div class="tags">
+            <span class="tag">React 19</span><span class="tag">React Router (HashRouter)</span>
+            <span class="tag">Framer Motion</span><span class="tag">Vite</span>
+          </div>
+          <ul class="highlights">
+            <li>Видео вместо статичных фото в каждом хиро-блоке — с постер-кадром для мгновенной первой отрисовки, пока клип грузится.</li>
+            <li><code>HashRouter</code> — четыре товарные категории и страницы «О нас»/«Контакты» работают как отдельные маршруты без серверных правил редиректа на GitHub Pages.</li>
+            <li>На каждой категории — свой блок производства, материалов и отзывов, а не переиспользование одних и тех же секций под разным цветом.</li>
+            <li>Тот же принцип, что и в Верее, — WhatsApp всегда на виду: полноширинная плашка на телефоне, пульсирующий круг на десктопе.</li>
           </ul>
         </div>
       </article>
