@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Цены на сайты — Hikaru, Бишкек</title>
+<meta name="description" content="Три тарифа на создание сайта в Бишкеке: от 8 000 сом, готово за 1 день. Полный список допуслуг и цен.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EBEDE8; --surface:#F7F8F5; --text:#15202B; --muted:#5A6771; --line:#D2D8CD;
+  --brass:#9C6E1C; --patina:#1C6A57; --panel:#15202B; --panel-text:#EDEFEA;
+  --panel-muted:#9DAAB3; --panel-line:#2C3A46; --shadow:0 1px 0 rgba(21,32,43,.06);
+}
+:root:not([data-theme="light"]){ @media (prefers-color-scheme: dark){
+  --bg:#101519; --surface:#181F25; --text:#E7EBE5; --muted:#98A5AD; --line:#26313A;
+  --brass:#D9A441; --patina:#59B49B; --panel:#1C2731; --panel-text:#EDEFEA;
+  --panel-muted:#A2B0B9; --panel-line:#33414D; --shadow:none;
+}}
+:root[data-theme="dark"]{
+  --bg:#101519; --surface:#181F25; --text:#E7EBE5; --muted:#98A5AD; --line:#26313A;
+  --brass:#D9A441; --patina:#59B49B; --panel:#1C2731; --panel-text:#EDEFEA;
+  --panel-muted:#A2B0B9; --panel-line:#33414D; --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Onest","Segoe UI",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;background-image:radial-gradient(color-mix(in srgb,var(--text) 4%,transparent) 1px,transparent 1px);background-size:28px 28px}
+h1,h2,h3,.price-big{font-family:"Bitter",Georgia,"Times New Roman",serif;font-weight:600;letter-spacing:-.01em}
+h1{font-size:clamp(1.9rem,5.5vw,3rem);line-height:1.1;margin:0 0 .8rem;font-weight:700}
+h2{font-size:clamp(1.5rem,3.5vw,2.1rem);line-height:1.18;margin:0 0 .4rem}
+h3{font-size:1.12rem;line-height:1.3;margin:0 0 .3rem}
+p{margin:0 0 .9rem;max-width:60ch}
+a{color:inherit}
+.wrap{width:min(1080px,100% - 2.4rem);margin-inline:auto}
+.sec{padding:clamp(2.2rem,6vw,4rem) 0}
+.sec-head{margin-bottom:1.9rem;max-width:54ch}
+.sec-head p{color:var(--muted);margin:0;font-size:.98rem}
+.rule{height:2px;width:44px;background:var(--brass);border-radius:2px;margin-bottom:1rem}
+
+.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.65rem 0}
+.brand{font-family:"Bitter",Georgia,serif;font-weight:700;font-size:1rem;text-decoration:none}
+.top-links{display:flex;align-items:center;gap:1.2rem}
+.top-links a.nav{display:none;text-decoration:none;color:var(--muted);font-size:.92rem}
+.top-links a.nav:hover{color:var(--text)}
+@media(min-width:760px){.top-links a.nav{display:inline}}
+
+.skip-link{position:absolute;left:1rem;top:-3rem;z-index:100;background:var(--brass);color:#15202B;padding:.7rem 1.1rem;border-radius:8px;font-weight:600;text-decoration:none;transition:top .15s ease}
+.skip-link:focus{top:1rem}
+
+.back-link{display:inline-flex;align-items:center;gap:.35rem;color:var(--muted);text-decoration:none;font-size:.9rem;margin-bottom:1.2rem}
+.back-link:hover{color:var(--brass)}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.2rem;border-radius:999px;font-weight:600;font-size:.96rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,background-color .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn-ghost{border-color:var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--brass)}
+.btn-light{background:var(--brass);color:#15202B}
+.btn-xl{padding:1.05rem 2rem;font-size:1.08rem;border-radius:999px}
+.btn-wa{background:#25D366;color:#0B2E1C}
+.btn-wa:hover{background:#1FBF5B}
+.btn svg{width:1.15em;height:1.15em;flex-shrink:0;fill:currentColor}
+.btn-xl svg{width:1.3em;height:1.3em}
+
+.intro-stage>*{opacity:0;transform:translateY(14px);animation:heroUp .6s cubic-bezier(.16,1,.3,1) forwards}
+.intro-stage>*:nth-child(1){animation-delay:.03s}
+.intro-stage>*:nth-child(2){animation-delay:.12s}
+.intro-stage>*:nth-child(3){animation-delay:.24s}
+.intro-stage>*:nth-child(4){animation-delay:.34s}
+@keyframes heroUp{to{opacity:1;transform:none}}
+.hero-kicker{display:inline-flex;align-items:center;gap:.55rem;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;color:var(--patina);font-weight:600;margin:0 0 .7rem}
+.hero-kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--patina);flex-shrink:0}
+.intro p.lead{color:var(--muted);max-width:52ch;font-size:clamp(1rem,2vw,1.1rem)}
+
+.tiers{display:grid;gap:1rem}
+@media(min-width:900px){.tiers{grid-template-columns:repeat(3,1fr);align-items:start}}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem 1.4rem 1.6rem;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column}
+.tier-top{height:3px;background:var(--brass);border-radius:3px;width:36px;margin-bottom:1rem}
+.tier h3{font-size:1.24rem;margin-bottom:.3rem}
+.tier .who{color:var(--muted);font-size:.92rem;margin:0 0 1.1rem;min-height:2.8em}
+.price-big{font-size:clamp(1.9rem,4.6vw,2.4rem);line-height:1;font-weight:700;display:block}
+.price-cur{font-size:.95rem;font-weight:500;color:var(--muted);font-family:"Onest",sans-serif;margin-left:.3rem}
+.price-from{font-size:.83rem;color:var(--muted);display:block;margin-bottom:.2rem}
+.term{font-size:.92rem;color:var(--patina);font-weight:600;margin:.6rem 0 1.1rem}
+.tier ul{list-style:none;margin:0 0 1.4rem;padding:0;display:grid;gap:.5rem}
+.tier li{position:relative;padding-left:1.4rem;font-size:.95rem;line-height:1.45}
+.tier li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:2px;background:var(--brass)}
+.tier .btn{margin-top:auto;justify-content:center}
+.tier.featured{background:var(--panel);color:var(--panel-text);border-color:var(--panel)}
+.tier.featured .who,.tier.featured .price-from,.tier.featured .price-cur{color:var(--panel-muted)}
+.tier.featured .term{color:var(--brass)}
+.badge{position:absolute;top:-.7rem;right:1.1rem;background:var(--brass);color:#15202B;font-size:.75rem;font-weight:600;padding:.22rem .68rem;border-radius:999px}
+@media(min-width:900px){.tier.featured{margin-top:-10px;box-shadow:0 20px 44px -16px color-mix(in srgb,var(--brass) 45%,transparent)}}
+.tiers .tier:nth-child(1).in{transition-delay:.09s}
+.tiers .tier:nth-child(2).in{transition-delay:0s}
+.tiers .tier:nth-child(3).in{transition-delay:.18s}
+
+.extras{margin-top:2.2rem;border-top:1px solid var(--line)}
+.extra{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.extra-name{font-size:.97rem}
+.extra-name small{display:block;color:var(--muted);font-size:.85rem;line-height:1.4}
+.extra-price{font-family:"Bitter",Georgia,serif;font-weight:600;white-space:nowrap;color:var(--brass)}
+
+.trust{margin-top:2.2rem;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem}
+.trust-list{list-style:none;margin:0;padding:0;display:grid;gap:.85rem}
+@media(min-width:820px){.trust-list{grid-template-columns:repeat(3,1fr);gap:1.8rem}}
+.trust-list li{position:relative;padding-left:1.7rem;font-size:.95rem;line-height:1.5;color:var(--text);font-weight:600}
+.trust-list li::before{content:"";position:absolute;left:0;top:.28em;width:12px;height:7px;border-left:2px solid var(--patina);border-bottom:2px solid var(--patina);transform:rotate(-45deg)}
+
+.cta{background:var(--panel);color:var(--panel-text);border-radius:16px;padding:clamp(1.7rem,4vw,2.8rem);text-align:center}
+.cta h2{margin-bottom:.6rem}
+.cta p{color:var(--panel-muted);margin-inline:auto;margin-bottom:1.6rem}
+.cta-actions{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
+.cta-contacts{margin-top:1.6rem;padding-top:1.3rem;border-top:1px solid var(--panel-line);display:flex;flex-wrap:wrap;gap:.4rem 1.6rem;justify-content:center;font-size:.94rem;color:var(--panel-muted)}
+.cta-contacts a{color:var(--panel-text);text-decoration:none;border-bottom:1px solid var(--brass)}
+
+footer{padding:2rem 0 2.8rem;color:var(--muted);font-size:.88rem}
+.foot-in{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;justify-content:space-between}
+
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:6px}
+
+.wa-float{
+  position:fixed;z-index:60;
+  right:max(1rem,env(safe-area-inset-right));
+  bottom:calc(1rem + env(safe-area-inset-bottom));
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:#25D366;color:#0B2E1C;
+  padding:.95rem 1.4rem;border-radius:999px;
+  font-weight:700;font-size:1.02rem;text-decoration:none;
+  box-shadow:0 6px 24px rgba(0,0,0,.28);
+  transition:transform .15s ease,background-color .15s ease;
+}
+.wa-float:hover{background:#1FBF5B}
+.wa-float:active{transform:translateY(1px)}
+.wa-float svg{width:26px;height:26px;fill:currentColor;flex-shrink:0}
+@media(max-width:420px){
+  .wa-float{left:max(1rem,env(safe-area-inset-left));justify-content:center;font-size:1.05rem;padding:1rem 1.2rem}
+}
+body{padding-bottom:6rem}
+@media(min-width:421px){body{padding-bottom:4.5rem}}
+
+.reveal{opacity:0;transform:translateY(12px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.in{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+  .intro-stage>*{opacity:1;transform:none;animation:none}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="index.html"><span data-fill="brand">Hikaru</span></a>
+    <nav class="top-links">
+      <a class="nav" href="index.html#works">Примеры</a>
+      <a class="nav" href="index.html#about">Обо мне</a>
+      <a class="btn btn-wa btn-sm" data-wa href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>Написать</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="sec wrap intro">
+  <div class="intro-stage">
+    <a class="back-link" href="index.html">← На главную</a>
+    <p class="hero-kicker">Бишкек · Даниил</p>
+    <h1>Сколько стоит сайт</h1>
+    <p class="lead">Три тарифа и список того, что можно добавить отдельно. Не уверены, какой выбрать, — напишите, подскажу бесплатно.</p>
+  </div>
+</section>
+
+<section class="sec wrap" id="price" style="padding-top:0">
+  <div class="tiers">
+    <article class="tier reveal">
+      <div class="tier-top"></div>
+      <h3>Готовый сайт</h3>
+      <p class="who">Берёте пример как есть.</p>
+      <span class="price-from">от</span>
+      <span class="price-big">8 000<span class="price-cur">сом</span></span>
+      <p class="term">1 день</p>
+      <ul>
+        <li>Ваши фото, тексты, цены, контакты</li>
+        <li>Логотип и название</li>
+        <li>Бесплатный адрес в интернете</li>
+        <li>Запускаю и показываю, как пользоваться</li>
+      </ul>
+      <a class="btn btn-ghost" data-wa data-msg="Здравствуйте, Даниил! Интересует тариф «Готовый сайт» — от 8 000 сом." href="#contact">Обсудить</a>
+    </article>
+
+    <article class="tier featured reveal">
+      <span class="badge">Чаще всего</span>
+      <div class="tier-top"></div>
+      <h3>Готовый плюс доработки</h3>
+      <p class="who">Подходит, но хочется своё.</p>
+      <span class="price-from">от</span>
+      <span class="price-big">13 000<span class="price-cur">сом</span></span>
+      <p class="term">3–4 дня</p>
+      <ul>
+        <li>Всё из первого тарифа</li>
+        <li>Свои цвета и шрифты</li>
+        <li>Новые разделы, которых нет в примере</li>
+        <li>Тексты за вас — до трёх страниц</li>
+      </ul>
+      <a class="btn btn-light" data-wa data-msg="Здравствуйте, Даниил! Интересует тариф «Готовый плюс доработки» — от 13 000 сом." href="#contact">Обсудить</a>
+    </article>
+
+    <article class="tier reveal">
+      <div class="tier-top"></div>
+      <h3>Сайт с нуля</h3>
+      <p class="who">Так, как ни у кого.</p>
+      <span class="price-from">от</span>
+      <span class="price-big">20 000<span class="price-cur">сом</span></span>
+      <p class="term">От 10 дней · считаю отдельно</p>
+      <ul>
+        <li>Сначала рисую, потом собираю</li>
+        <li>Сколько угодно страниц</li>
+        <li>Корзина и оплата, если нужно</li>
+        <li>Панель управления уже входит</li>
+      </ul>
+      <a class="btn btn-ghost" data-wa data-msg="Здравствуйте, Даниил! Интересует тариф «Сайт с нуля» — от 20 000 сом." href="#contact">Обсудить</a>
+    </article>
+  </div>
+
+  <div class="reveal">
+    <h3 style="margin-top:2.6rem">Отдельно</h3>
+    <div class="extras">
+      <div class="extra"><div class="extra-name">Панель управления<small>Сами меняете товары и цены, видите статистику посещений</small></div><div class="extra-price">2 000 сом</div></div>
+      <div class="extra"><div class="extra-name">Калькулятор стоимости</div><div class="extra-price">2 000 сом</div></div>
+      <div class="extra"><div class="extra-name">Свой адрес сайта на год<small>Например vashidveri.kg</small></div><div class="extra-price">от 3 000 сом</div></div>
+      <div class="extra"><div class="extra-name">Только для вас<small>Снимаю сайт с продажи, ни у кого больше такого не будет</small></div><div class="extra-price">от 10 000 сом</div></div>
+      <div class="extra"><div class="extra-name">Оплата картой<small>MBank, Элкарт, Visa, Mastercard</small></div><div class="extra-price">от 8 000 сом</div></div>
+      <div class="extra"><div class="extra-name">Тексты для сайта</div><div class="extra-price">от 700 сом / страница</div></div>
+      <div class="extra"><div class="extra-name">Дополнительный раздел</div><div class="extra-price">от 2 500 сом</div></div>
+      <div class="extra"><div class="extra-name">Обслуживание<small>Первая неделя бесплатно</small></div><div class="extra-price">2 000 сом / месяц</div></div>
+      <div class="extra"><div class="extra-name">В день обращения<small>Когда сайт нужен сегодня, а не завтра</small></div><div class="extra-price">+20%</div></div>
+    </div>
+  </div>
+
+  <div class="trust reveal">
+    <ul class="trust-list">
+      <li>Не сдам в срок — верну предоплату полностью</li>
+      <li>Всё, что обещал, остаётся в переписке</li>
+      <li>Я не аноним — живу в Бишкеке</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec wrap" id="contact">
+  <div class="cta reveal">
+    <h2>Не знаете, какой тариф ваш?</h2>
+    <p>Напишите пару слов о деле — подскажу бесплатно, на чём можно сэкономить.</p>
+    <div class="cta-actions">
+      <a class="btn btn-xl btn-wa" data-wa href="#"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg>Написать в WhatsApp</a>
+      <a class="btn btn-xl btn-light" data-tg href="#">Telegram</a>
+    </div>
+    <div class="cta-contacts">
+      <span><a data-tel href="#"><span data-fill="phone">+996 700 000 000</span></a></span>
+      <span>Бишкек · 9:00–21:00</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<a class="wa-float" data-wa href="#contact" aria-label="Написать в WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/></svg><span>Написать в WhatsApp</span></a>
+
+<footer class="wrap">
+  <div class="foot-in">
+    <span>© <span data-fill="year">2026</span> <span data-fill="brand">Hikaru</span> · Даниил, Бишкек</span>
+    <a href="index.html" style="color:inherit">На главную</a>
+  </div>
+</footer>
+
+<script>
+/* ── ПОМЕНЯЙТЕ ЭТИ СТРОКИ ── (те же значения, что и в portfolio.html) */
+const CONFIG = {
+  brand:    "Hikaru",
+  phone:    "+996 502 05 35 88",
+  whatsapp: "996502053588",
+  telegram: "H1karu_2",
+  greeting: "Здравствуйте, Даниил! Пишу с вашего сайта — хочу сайт для своего бизнеса."
+};
+/* ────────────────────────── */
+(function () {
+  const v = { brand: CONFIG.brand, phone: CONFIG.phone, year: new Date().getFullYear() };
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-fill]").forEach(function (el) {
+    const k = el.getAttribute("data-fill");
+    if (v[k]) el.textContent = v[k];
+  });
+  document.querySelectorAll("[data-wa]").forEach(function (el) {
+    const text = el.getAttribute("data-msg") || CONFIG.greeting;
+    el.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(text);
+    el.target = "_blank"; el.rel = "noopener";
+  });
+  document.querySelectorAll("[data-tg]").forEach(function (el) {
+    el.href = "https://t.me/" + CONFIG.telegram;
+    el.target = "_blank"; el.rel = "noopener";
+  });
+  document.querySelectorAll("[data-tel]").forEach(function (el) {
+    el.href = "tel:" + CONFIG.phone.replace(/[^\d+]/g, "");
+  });
+
+  const items = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    items.forEach(function (el) { el.classList.add("in"); });
+    return;
+  }
+  const io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
