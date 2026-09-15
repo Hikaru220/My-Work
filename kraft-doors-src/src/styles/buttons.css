@@ -1,0 +1,65 @@
+.btn {
+  --btn-h: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--btn-h);
+  padding-inline: 30px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  border-radius: var(--radius);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.btn-wa {
+  background: linear-gradient(180deg, var(--wa-green-bright), var(--wa-green));
+  color: #08240f;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset, 0 12px 30px -12px rgba(37, 211, 102, 0.55);
+  transition: box-shadow var(--dur-s) var(--ease-out), filter var(--dur-s) var(--ease-out);
+}
+
+.btn-wa:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 16px 36px -10px rgba(37, 211, 102, 0.65);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--line-strong);
+  transition: border-color var(--dur-s) var(--ease-out), background var(--dur-s) var(--ease-out);
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  background: rgba(198, 150, 63, 0.08);
+}
+
+.btn-text {
+  height: auto;
+  padding: 0;
+  gap: 12px;
+  color: var(--fg);
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 6px;
+  transition: border-color var(--dur-s) var(--ease-out), color var(--dur-s) var(--ease-out), gap var(--dur-s) var(--ease-out);
+}
+
+.btn-text:hover {
+  color: var(--gold-bright);
+  border-color: var(--gold);
+  gap: 18px;
+}
+
+@media (max-width: 640px) {
+  .btn {
+    --btn-h: 58px;
+    padding-inline: 26px;
+    font-size: 1rem;
+  }
+}

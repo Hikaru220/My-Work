@@ -1,0 +1,70 @@
+.contacts-page {
+  padding-top: clamp(140px, 12vw, 190px);
+  min-height: 70vh;
+}
+
+.contacts-page__inner {
+  max-width: 640px;
+}
+
+.contacts-card {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: clamp(24px, 4vw, 40px);
+  background: var(--bg-elevated);
+}
+
+.contacts-card__whatsapp {
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.contacts-card__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 16px;
+}
+
+.contacts-card__label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
+.contacts-card__value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--fg);
+}
+
+.contacts-card .hairline {
+  background: var(--line);
+}
+
+.contacts-card__social {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.contacts-card__social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--fg);
+  transition: border-color var(--dur-s) var(--ease-out), color var(--dur-s) var(--ease-out);
+}
+
+.contacts-card__social-link:hover {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}

@@ -1,0 +1,60 @@
+.reviews {
+  background: var(--bg);
+}
+
+.reviews__card {
+  position: relative;
+  max-width: 760px;
+  border-left: 2px solid var(--gold);
+  padding-left: clamp(20px, 4vw, 40px);
+  min-height: 180px;
+}
+
+.reviews__quote-mark {
+  position: absolute;
+  top: -34px;
+  left: clamp(4px, 3vw, 22px);
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--gold-deep);
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.reviews__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 0.9rem + 1vw, 1.6rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--fg);
+  line-height: 1.45;
+  margin-bottom: 18px;
+}
+
+.reviews__author {
+  font-size: 0.86rem;
+  color: var(--fg-muted);
+}
+
+.reviews__author span {
+  color: var(--fg-faint);
+}
+
+.reviews__dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.reviews__dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  transition: background var(--dur-s) var(--ease-out), transform var(--dur-s) var(--ease-out);
+}
+
+.reviews__dots button[data-active="true"] {
+  background: var(--gold);
+  transform: scale(1.3);
+}

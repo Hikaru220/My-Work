@@ -1,0 +1,26 @@
+.detail-video {
+  margin-top: clamp(32px, 5vw, 56px);
+}
+
+.detail-video__el {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+}
+
+.detail-video__caption {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--fg-muted);
+  max-width: 60ch;
+}
+
+@media (max-width: 640px) {
+  .detail-video__el {
+    aspect-ratio: 4 / 5;
+  }
+}

@@ -1,0 +1,233 @@
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright));
+  transform-origin: 0% 50%;
+  z-index: 200;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  border-bottom: 1px solid transparent;
+  /* Always-on scrim, independent of scroll — keeps nav text readable over
+     ANY hero video frame (bright wood grain included), not just dark ones. */
+  background: linear-gradient(180deg, rgba(6, 6, 5, 0.78) 0%, rgba(6, 6, 5, 0.4) 65%, rgba(6, 6, 5, 0) 100%);
+}
+
+.navbar__solid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(16px, 3vw, 40px);
+  height: clamp(72px, 5vw + 48px, 92px);
+}
+
+.navbar__logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  flex-shrink: 0;
+}
+
+.navbar__logo-mark {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+}
+
+.navbar__logo-sub {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin-top: 2px;
+}
+
+.navbar__links {
+  display: none;
+  flex: 1;
+  justify-content: center;
+  gap: clamp(18px, 2vw, 34px);
+}
+
+.navbar__link {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  position: relative;
+  padding-block: 4px;
+  white-space: nowrap;
+  transition: color var(--dur-s) var(--ease-out);
+}
+
+.navbar__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-s) var(--ease-out);
+}
+
+.navbar__link:hover {
+  color: var(--fg);
+}
+
+.navbar__link:hover::after,
+.navbar__link.active::after {
+  transform: scaleX(1);
+}
+
+.navbar__link.active {
+  color: var(--fg);
+}
+
+.navbar__city {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  display: none;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 1180px) {
+  .navbar__city {
+    display: block;
+  }
+}
+
+.navbar__cta {
+  --btn-h: 44px;
+  padding-inline: 20px;
+  font-size: 0.8rem;
+}
+
+.navbar__burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+  border-radius: var(--radius);
+}
+
+@media (min-width: 980px) {
+  .navbar__links {
+    display: flex;
+  }
+  .navbar__burger {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar__cta {
+    display: none;
+  }
+}
+
+/* Mobile full-screen menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: #0a0a09;
+  background-image: radial-gradient(circle at 85% 0%, rgba(198, 150, 63, 0.12), transparent 55%);
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: clamp(72px, 5vw + 48px, 92px);
+  flex-shrink: 0;
+}
+
+.mobile-menu__links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding-inline: var(--gutter);
+}
+
+.mobile-menu__link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  padding-block: 16px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  font-weight: 500;
+  color: var(--fg);
+  text-align: left;
+}
+
+.mobile-menu__link.active {
+  color: var(--gold-bright);
+}
+
+.mobile-menu__index {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.mobile-menu__arrow {
+  margin-left: auto;
+  color: var(--fg-faint);
+}
+
+.mobile-menu__bottom {
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: max(28px, env(safe-area-inset-bottom));
+}
+
+.mobile-menu__cta {
+  width: 100%;
+}
+
+.mobile-menu__note {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--fg-faint);
+}

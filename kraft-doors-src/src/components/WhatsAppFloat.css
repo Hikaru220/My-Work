@@ -1,0 +1,111 @@
+.wa-float {
+  position: fixed;
+  right: clamp(20px, 3vw, 36px);
+  bottom: clamp(24px, 4vw, 44px);
+  z-index: 180;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--wa-green-bright), var(--wa-green));
+  color: #08240f;
+  border: 3px solid var(--bg);
+  box-shadow: 0 10px 26px -8px rgba(0, 0, 0, 0.65);
+  will-change: transform;
+  transition: transform var(--dur-s) var(--ease-out);
+}
+
+.wa-float:hover {
+  transform: scale(1.06);
+}
+
+.wa-float__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--wa-green-bright);
+  animation: waRing 2.6s var(--ease-soft) infinite;
+  pointer-events: none;
+}
+
+@keyframes waRing {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+.wa-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 190;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 84px;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: linear-gradient(180deg, var(--wa-green-bright), var(--wa-green));
+  color: #08240f;
+  overflow: hidden;
+  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 -12px 34px -8px rgba(0, 0, 0, 0.55);
+}
+
+.wa-bar__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #08240f;
+  color: var(--wa-green-bright);
+}
+
+.wa-bar__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.wa-bar__title {
+  font-size: 1.14rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.wa-bar__sub {
+  font-size: 0.8rem;
+  font-weight: 600;
+  opacity: 0.75;
+}
+
+.wa-bar__pulse {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.55) 48%, transparent 66%);
+  transform: translateX(-120%);
+  animation: waSheen 3.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes waSheen {
+  0%, 40% { transform: translateX(-120%); }
+  70%, 100% { transform: translateX(120%); }
+}
+
+@media (max-width: 719px) {
+  .wa-bar {
+    display: flex;
+  }
+}
+
+@media (min-width: 720px) {
+  .wa-float {
+    display: flex;
+  }
+}

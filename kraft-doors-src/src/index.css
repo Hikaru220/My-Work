@@ -1,0 +1,201 @@
+:root {
+  color-scheme: dark;
+
+  /* Canvas */
+  --bg: #0a0a09;
+  --bg-elevated: #121110;
+  --bg-elevated-2: #171613;
+  --line: rgba(243, 238, 228, 0.12);
+  --line-strong: rgba(243, 238, 228, 0.22);
+
+  /* Text */
+  --fg: #f3eee4;
+  --fg-muted: #c7bfb1;
+  --fg-faint: #8a8172;
+
+  /* Accent — brass / bronze gold */
+  --gold: #c6963f;
+  --gold-bright: #e3b968;
+  --gold-deep: #8a6528;
+  --gold-pale: #e9d3a3;
+
+  /* WhatsApp brand green — used only for WhatsApp actions, so it stays
+     instantly recognizable against the gold accent used everywhere else. */
+  --wa-green: #25d366;
+  --wa-green-bright: #3fe07a;
+  --wa-green-deep: #14893f;
+
+  /* Type */
+  --font-display: "Fraunces", "Iowan Old Style", "Georgia", serif;
+  --font-sans: "Manrope", -apple-system, "Segoe UI", sans-serif;
+
+  /* Scale (fluid) */
+  --size-display: clamp(2.75rem, 3.2rem + 5.4vw, 8.25rem);
+  --size-h2: clamp(2rem, 1.5rem + 2.6vw, 3.6rem);
+  --size-h3: clamp(1.35rem, 1.15rem + 1vw, 1.9rem);
+  --size-lead: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem);
+  --size-body: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  --size-label: 0.82rem;
+
+  /* Rhythm */
+  --unit: 8px;
+  --section-pad: clamp(64px, 6vw + 32px, 148px);
+  --gutter: clamp(20px, 5vw, 64px);
+  --measure: 62ch;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-s: 0.4s;
+  --dur-m: 0.8s;
+  --dur-l: 1.3s;
+
+  --radius: 2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--size-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+#root {
+  overflow-x: clip;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-pad);
+  position: relative;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--size-label);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.label.gold {
+  color: var(--gold);
+}
+
+.section-head {
+  max-width: 720px;
+  margin-bottom: clamp(40px, 5vw, 76px);
+}
+
+.section-head .label {
+  margin-bottom: 14px;
+  display: block;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--size-h2);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.section-lead {
+  font-size: var(--size-lead);
+  color: var(--fg-muted);
+  max-width: var(--measure);
+}
+
+.hairline {
+  height: 1px;
+  width: 100%;
+  background: var(--line);
+  border: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+::selection {
+  background: var(--gold);
+  color: #14120c;
+}
+
+@media (max-width: 719px) {
+  /* Bigger base text on phones — some visitors are older, unfamiliar with
+     the site, or low-vision, so nothing on mobile should read as "fine print". */
+  html {
+    font-size: 20px;
+  }
+
+  body {
+    line-height: 1.7;
+    padding-bottom: calc(84px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
