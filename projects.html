@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Проекты — Hikaru220</title>
+<meta name="description" content="Шесть продакшен-систем — маркетплейс, EdTech-платформа, мобильный инструмент для стройки, финтех-взаиморасчёты, SMM-автоматизация и своя сеть Minecraft — плюс два лендинга на заказ.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☀️</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="site-nav">
+    <a class="logo" href="index.html">Hikaru220<span>/</span></a>
+    <div class="links">
+      <a href="index.html">Главная</a>
+      <a href="about.html">Обо мне</a>
+      <a href="projects.html" class="active">Проекты</a>
+      <a href="contacts.html">Контакты</a>
+    </div>
+  </nav>
+
+  <section style="margin-top:44px">
+    <div class="section-title">Проекты</div>
+    <h2 class="section-heading">Шесть систем, пять языков<span class="accent-dot">.</span></h2>
+    <p class="lede" style="margin-top:14px">От маркетплейса с банковским OTP-платежом до собственной сети Minecraft с кросс-серверной синхронизацией. Ниже — не лендинги, а рабочий код с настоящими пользователями, деньгами и деплоями.</p>
+
+    <div class="legend">
+      <span><i style="background:var(--c-market)"></i>Маркетплейс</span>
+      <span><i style="background:var(--c-edu)"></i>EdTech</span>
+      <span><i style="background:var(--c-mobile)"></i>Мобайл / стройка</span>
+      <span><i style="background:var(--c-fintech)"></i>Финтех</span>
+      <span><i style="background:var(--c-smm)"></i>SMM / AI</span>
+      <span><i style="background:var(--c-game)"></i>Game dev</span>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="card-list">
+
+      <article class="card" style="--proj: var(--c-market); --fill: var(--fill-market)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></svg>
+          <div class="hero-device">
+            <div class="shot" style="width:320px">
+              <div class="browser-chrome">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>mebelwork.pro</div>
+              </div>
+              <img src="images/mebelwork-screenshot.jpg" alt="Главная страница Mebel Work — поиск мастера по городу и категории" loading="lazy">
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Маркетплейс</div>
+            <h3>Mebel Work</h3>
+            <p>Мебельные мастера и клиенты в Кыргызстане — заявка вместо долгих поисков</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Двусторонний маркетплейс мебельных мастеров: клиент один раз описывает задачу и получает до 7 предложений с ценой и сроком от проверенных мастеров своего города; оплата лидов и подписок идёт через встроенный кошелёк с пополнением через банковский OTP-платёж.</p>
+          <div class="tags">
+            <span class="tag">Next.js 16 (App Router)</span><span class="tag">Cloudflare Workers</span>
+            <span class="tag">D1 + Drizzle ORM</span><span class="tag">R2</span><span class="tag">Google / Telegram OAuth</span>
+          </div>
+          <ul class="highlights">
+            <li>Полноценная интеграция с <b>межбанковским OTP-платёжным шлюзом</b> Кыргызстана: старт → подтверждение кодом → поллинг статуса, с идемпотентностью и блокировкой после исчерпанных попыток.</li>
+            <li>Next.js работает <b>воркером на Cloudflare</b> (D1 + R2 + трансформация изображений), плюс запасной путь деплоя — тот же wrangler в Docker на VPS.</li>
+            <li>20+ таблиц данных: заявки клиента → платные отклики мастеров по цене категории → выбор специалиста, плюс кошелёк, рефералка и подписка «Мастер+».</li>
+            <li>Билингвальный интерфейс (RU/KY) и уведомления о новых откликах в WhatsApp, Telegram и web-push.</li>
+          </ul>
+          <figure class="shot" style="max-width:520px">
+            <div class="browser-chrome">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>mebelwork.pro/requests</div>
+            </div>
+            <img src="images/mebelwork-requests.jpg" alt="Лента заявок клиентов для мастеров на Mebel Work" loading="lazy">
+            <figcaption>сторона мастера — открытые заявки с бюджетом и языком клиента</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-edu); --fill: var(--fill-edu)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 12 12 6l10 6-10 6-10-6Z"/><path d="M12 18v4"/></svg>
+          <div class="hero-device">
+            <div class="shot" style="width:280px">
+              <div class="browser-chrome">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>vanvi.online</div>
+              </div>
+              <img src="images/vanvi-screenshot.png" alt="Главный экран курса Vanvi — заголовок, статистика, чат-бот Нуви" loading="lazy">
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">EdTech</div>
+            <h3>Vanvi</h3>
+            <p>Платформа онлайн-курса с оплатой, личным кабинетом и партнёрской программой</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Коммерческая платформа курса «ИИ в маркетинге» для рынка Кыргызстана: не лендинг, а полный продукт — платный доступ к урокам, личный кабинет, партнёрская программа и админка, всё написано и задеплоено с нуля.</p>
+          <div class="tags">
+            <span class="tag">Node.js / Express</span><span class="tag">SQLite</span><span class="tag">JWT + Google OAuth</span>
+            <span class="tag">Python (сборка контента)</span><span class="tag">nginx / systemd / VPS</span>
+          </div>
+          <ul class="highlights">
+            <li><b>Собственный вьювер слайдов</b> на JPEG-рендере вместо Office Online Viewer — обходит отсутствие полноценного Fullscreen API на iOS Safari.</li>
+            <li>Оплата через платёжный шлюз с <b>идемпотентным вебхуком</b> — защита от повторной выдачи тарифа при ретраях платёжного провайдера.</li>
+            <li>Python-пайплайн конвертирует <b>55 презентаций</b> в 38 уроков и 21 статью библиотеки (LibreOffice → PyMuPDF → JPEG).</li>
+            <li>Отдельный Telegram-бот (~1400 строк) ведёт партнёрскую программу с синхронизацией в Google Sheets.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-mobile); --fill: var(--fill-mobile)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2.5" y="9" width="19" height="6" rx="1.2" transform="rotate(-10 12 12)"/></svg>
+          <div class="hero-device">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="pmock-status"><span>9:41</span><span>●●●</span></div>
+                <div class="pmock-appbar"><span class="back">←</span> Комната — гостиная</div>
+                <div class="plan-photo">
+                  <svg viewBox="0 0 200 230" preserveAspectRatio="none">
+                    <polygon points="30,40 150,30 168,150 45,175" fill="var(--c-mobile)" fill-opacity="0.16" stroke="var(--c-mobile)" stroke-width="2.5"/>
+                    <circle cx="30" cy="40" r="4" fill="#fff" stroke="var(--c-mobile)" stroke-width="2"/>
+                    <circle cx="150" cy="30" r="4" fill="#fff" stroke="var(--c-mobile)" stroke-width="2"/>
+                    <circle cx="168" cy="150" r="4" fill="#fff" stroke="var(--c-mobile)" stroke-width="2"/>
+                    <circle cx="45" cy="175" r="4" fill="#fff" stroke="var(--c-mobile)" stroke-width="2"/>
+                  </svg>
+                  <div class="plan-label" style="left:76px; top:14px">4.2 м</div>
+                  <div class="plan-label" style="left:160px; top:95px">3.1 м</div>
+                </div>
+                <div class="plan-sheet">
+                  <div class="plan-row"><span>Площадь</span><b>18.4 м²</b></div>
+                  <div class="plan-row"><span>Периметр</span><b>17.2 м</b></div>
+                  <div class="plan-row"><span>Высота потолка</span><b>2.7 м</b></div>
+                  <div class="plan-save">Сохранить план</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Мобайл / стройка</div>
+            <h3>PlanScan</h3>
+            <p>Обмер помещений на стройке по фото — без рулетки, AR и LiDAR</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Приложение для ремонтных и строительных бригад: сфотографировать комнату, обвести план поверх фото, откалибровать масштаб по длине одной стены — и сразу получить площадь, объём, 3D-превью мебели и PDF-смету.</p>
+          <div class="tags">
+            <span class="tag">React Native / Expo</span><span class="tag">TypeScript</span>
+            <span class="tag">SQLite (offline-first)</span><span class="tag">react-native-svg</span>
+          </div>
+          <ul class="highlights">
+            <li>Калибровка <b>всего плана по одной известной стене</b> — площадь и объём считаются формулой шнурования, без AR и LiDAR.</li>
+            <li>Собственный изометрический 3D-движок (~35 строк) — проекция и мебель рисуются обычными SVG-полигонами, без 3D-библиотек.</li>
+            <li>Редактор плана с перетаскиванием точек и проёмов — на голом <code>PanResponder</code>, без сторонних canvas-библиотек.</li>
+            <li>Офлайн-first: локальная SQLite со схемой миграций и готовой очередью синхронизации под будущий бэкенд.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-fintech); --fill: var(--fill-fintech)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M4 8h16M4 8l-2.4 5.2a3 3 0 0 0 5.8 0L5 8Z"/><path d="M20 8l-2.4 5.2a3 3 0 0 0 5.8 0L21 8Z"/></svg>
+          <div class="hero-device">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="pmock-status"><span>9:41</span><span>●●●</span></div>
+                <div class="pmock-appbar"><span class="back">←</span> Ремонт квартиры, ул. Токтогула 45</div>
+                <div class="pmock-content">
+                  <div class="pmock-card">
+                    <div class="pmock-lbl">Баланс</div>
+                    <div class="pmock-balance">9 000 сом</div>
+                    <div class="pmock-row2">
+                      <div><div class="lbl">Материалы</div><div class="val">6 200 сом</div></div>
+                      <div><div class="lbl">Работа</div><div class="val">4 800 сом</div></div>
+                    </div>
+                    <div class="pmock-row2 pmock-total">
+                      <div><div class="lbl">Итоговая стоимость</div><div class="val">11 000 сом</div></div>
+                    </div>
+                    <div class="pmock-btn">Закрыть проект</div>
+                  </div>
+                  <div class="pmock-chips">
+                    <span class="pmock-chip active">Все типы</span>
+                    <span class="pmock-chip">Расход</span>
+                    <span class="pmock-chip">Предоплата</span>
+                  </div>
+                  <div class="pmock-op">
+                    <div><div class="t">Расход</div><div class="c">Материалы</div><div class="m">Бекбол Асан · 12.09, 14:20</div></div>
+                    <div class="amt neg">−6 200 сом</div>
+                  </div>
+                  <div class="pmock-op">
+                    <div><div class="t">Предоплата</div><div class="m">Айгуль К. · 10.09, 09:05</div></div>
+                    <div class="amt pos">+20 000 сом</div>
+                  </div>
+                  <div class="pmock-op">
+                    <div><div class="t">Расход</div><div class="c">Работа</div><div class="m">Бекбол Асан · 08.09, 18:40</div></div>
+                    <div class="amt neg">−4 800 сом</div>
+                  </div>
+                </div>
+                <div class="pmock-fab">+</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Финтех / B2B</div>
+            <h3>Kasso</h3>
+            <p>Взаиморасчёты подрядчика и клиента — баланс и итоговый расчёт в реальном времени</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Сервис для мастеров, дизайнеров и организаторов мероприятий в Кыргызстане: клиент вносит предоплату, подрядчик фотографирует чеки расходов и фиксирует свою работу — приложение ведёт баланс и считает итоговый расчёт при закрытии проекта.</p>
+          <div class="tags">
+            <span class="tag">NestJS + TypeORM</span><span class="tag">PostgreSQL</span>
+            <span class="tag">React + Vite (admin)</span><span class="tag">Kotlin + Jetpack Compose</span>
+          </div>
+          <ul class="highlights">
+            <li><b>Три независимых клиента</b> (backend, веб-админка, нативный Android) поверх одного REST API.</li>
+            <li>Финансовая логика (баланс, автомат закрытия сделки, тарифы) вынесена в <b>чистый слой без побочных эффектов</b>, полностью покрытый юнит-тестами.</li>
+            <li><b>Паттерн адаптеров</b> под каждую внешнюю интеграцию (SMS, OCR, пуши, оплата, сторедж) — весь стек поднимается локально в mock-режиме без единого боевого ключа.</li>
+            <li>~10 500 строк backend + ~13 400 строк Kotlin на мобильном клиенте, 20 контроллеров, 19 миграций БД.</li>
+          </ul>
+          <figure class="shot" style="overflow-x:auto; max-width:420px">
+            <div class="browser-chrome">
+              <div class="dots"><span></span><span></span><span></span></div>
+              <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>admin.kasso.kg</div>
+            </div>
+            <div class="kmock">
+              <div class="kmock-sidebar">
+                <div class="kmock-brand"><span class="mark">K</span>Кассо · Admin</div>
+                <div class="kmock-nav">
+                  <div>Жалобы и споры</div>
+                  <div class="active">Проект</div>
+                  <div>Пользователи</div>
+                  <div>Аномалии</div>
+                  <div>Ниши (NicheConfig)</div>
+                  <div>Аудит-лог</div>
+                </div>
+              </div>
+              <div class="kmock-main">
+                <div class="kmock-topbar">TanyaKasso_dev · admin</div>
+                <div class="kmock-content">
+                  <h1>Просмотр проекта</h1>
+                  <div class="kmock-card">
+                    <h2>Ремонт квартиры, ул. Токтогула 45</h2>
+                    <dl class="kmock-detail-grid">
+                      <dt>ID</dt><dd class="mono">3f1c7a9e…b902</dd>
+                      <dt>Ниша</dt><dd>repair</dd>
+                      <dt>Статус</dt><dd><span class="kmock-badge">active</span></dd>
+                      <dt>Баланс</dt><dd>9 000 сом</dd>
+                    </dl>
+                  </div>
+                  <div class="kmock-card">
+                    <h2>Журнал операций</h2>
+                    <table>
+                      <thead><tr><th>Дата</th><th>Тип</th><th>Категория</th><th>Сумма</th><th>Способ</th><th>Статус</th><th>Чек</th></tr></thead>
+                      <tbody>
+                        <tr><td>12.09</td><td>расход</td><td>материалы</td><td>6 200 сом</td><td>наличные</td><td>подтверждено</td><td><a class="klink" href="#">фото</a></td></tr>
+                        <tr><td>10.09</td><td>предоплата</td><td>—</td><td>20 000 сом</td><td>перевод</td><td>подтверждено</td><td>—</td></tr>
+                        <tr><td>08.09</td><td>расход</td><td>работа</td><td>4 800 сом</td><td>наличные</td><td>подтверждено</td><td><a class="klink" href="#">фото</a></td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figcaption>admin — сотрудник платформы, компонент <code>ProjectPage</code> (пример данных)</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-smm); --fill: var(--fill-smm)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/></svg>
+          <div class="hero-device">
+            <div class="phone">
+              <div class="phone-screen tg-screen">
+                <div class="pmock-status" style="background:#4d7ea8;color:#fff"><span>9:41</span><span>●●●</span></div>
+                <div class="tg-header">
+                  <div class="tg-avatar">🤖</div>
+                  <div><div class="tg-name">Content Bot</div><div class="tg-sub">бот</div></div>
+                </div>
+                <div class="tg-body">
+                  <div class="tg-msg">
+                    <div class="tg-thumb"></div>
+                    <div class="tg-cap">«Летний диван Aurora — мягкость, которая держит форму» #мебель #интерьер</div>
+                    <div class="tg-time">18:02</div>
+                  </div>
+                  <div class="tg-actions">
+                    <div class="tg-action">✅ Опубликовать</div>
+                    <div class="tg-action">✏️ Изменить подпись</div>
+                    <div class="tg-action">⏭ Пропустить</div>
+                  </div>
+                  <div class="tg-msg me">Опубликовать<div class="tg-time">18:05</div></div>
+                  <div class="tg-msg">Готово. Пост выйдет в 19:00.<div class="tg-time">18:05</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">SMM / AI-автоматизация</div>
+            <h3>Автопилот для соцсетей</h3>
+            <p>AI пишет подписи и монтирует видео, человек в Telegram подтверждает публикацию</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Telegram-бот с человеком в контуре ведёт Instagram/Facebook небольшого мебельного бренда в Центральной Азии: подбирает фото из общей папки на Google Drive, пишет подписи и обложки через AI, собирает Ken Burns-видео из статики и присылает оператору на подтверждение перед публикацией.</p>
+          <div class="tags">
+            <span class="tag">Python / FastAPI</span><span class="tag">aiogram 3 (FSM)</span>
+            <span class="tag">SQLAlchemy async</span><span class="tag">Gemini AI</span><span class="tag">ffmpeg</span>
+          </div>
+          <ul class="highlights">
+            <li>Кроме команд, есть <b>роутер на естественном языке</b> — оператор может писать боту обычным текстом.</li>
+            <li>Два полностью готовых и протестированных бэкенда публикации (прямой Meta Graph API и Metricool) <b>сознательно оставлены выключенными</b> до прохождения Meta App Review — задокументированное решение «построить про запас, не тянуть скоуп».</li>
+            <li>~2200 строк тестов (123 теста, все внешние вызовы замоканы) на ~3000 строк прикладного кода.</li>
+            <li>Маскирование секретов в логах и graceful-деградация при отключённых интеграциях (Drive, Metricool, ffmpeg).</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-game); --fill: var(--fill-game)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3 20 7.5v9L12 21 4 16.5v-9Z"/><path d="M12 12v9M12 12 4 7.5M12 12l8-4.5"/></svg>
+          <div class="hero-device">
+            <div class="discord-frame">
+              <div class="discord-guilds"><div class="g active">S</div><div class="g">M</div></div>
+              <div class="discord-channels">
+                <div class="srv">Sun Network</div>
+                <div class="ch"># общий</div>
+                <div class="ch active"># account-link</div>
+                <div class="ch"># tickets</div>
+              </div>
+              <div class="discord-main">
+                <div class="discord-topbar"># account-link</div>
+                <div class="discord-msgs">
+                  <div class="discord-msg">
+                    <div class="av">☀</div>
+                    <div>
+                      <span class="name">SunShine</span><span class="tag">BOT</span>
+                      <div class="body">Аккаунт <b>Hikaru220</b> привязан к нику <b>Sun_Legend</b> ✅</div>
+                      <div class="embed">Доступ к тикетам поддержки открыт</div>
+                    </div>
+                  </div>
+                  <div class="discord-msg">
+                    <div class="av" style="background:#5865f2">SL</div>
+                    <div>
+                      <span class="name">Sun_Legend</span>
+                      <div class="body">как купить VIP-косметику?</div>
+                    </div>
+                  </div>
+                  <div class="discord-msg">
+                    <div class="av">☀</div>
+                    <div>
+                      <span class="name">SunShine</span><span class="tag">BOT</span>
+                      <div class="embed">Открыт тикет #482 — команда поддержки ответит скоро</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="discord-inputbar">Написать в #account-link</div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Game dev / системы</div>
+            <h3>Sun Network</h3>
+            <p>19 самописных Java-плагинов: экономика, кросс-серверный relay, мост в Discord</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Инфраструктура собственной игровой сети: 19 самописных Java-плагинов (~22 000 строк) — экономика и косметика, кросс-серверная синхронизация, модерация и интеграция с Discord — вместо готовых решений с маркетплейса.</p>
+          <div class="tags">
+            <span class="tag">Java 21</span><span class="tag">Paper API</span><span class="tag">Maven / Gradle</span>
+            <span class="tag">MySQL</span><span class="tag">JDA (Discord)</span>
+          </div>
+          <ul class="highlights">
+            <li><b>Кросс-серверный relay</b> поверх общих таблиц MySQL с асинхронным поллингом — три плагина синхронизации переиспользуют один паттерн вместо Redis.</li>
+            <li>SunShine — мост Paper↔Discord на JDA: привязка аккаунтов, заявки в стаф, встроенный тикет-бот поддержки (~3100 строк).</li>
+            <li>SunArtifacts — система магических артефактов с уникальными в мире предметами и структурными анлоками (~9100 строк, самый крупный плагин сети).</li>
+            <li><b>Восстановление потерянного исходника</b> экономического плагина: декомпиляция через CFR и ручной патч байткод-производного кода для новой фичи.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="section-title">Дизайн на заказ</div>
+    <h2 class="section-heading">Лендинги на заказ<span class="accent-dot">.</span></h2>
+    <p class="section-lede" style="margin-top:10px">Отдельно от продакшен-систем выше — два лендинга для одного и того же типа клиента (дверной бизнес), в контрастных стилях, как пример работы над образом бренда, а не рабочие системы с пользователями.</p>
+
+    <div class="card-list">
+
+      <article class="card" style="--proj: var(--c-doors); --fill: var(--fill-doors)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="3" width="14" height="18" rx="1"/><circle cx="15" cy="12" r="1" fill="currentColor" stroke="none"/></svg>
+          <div class="hero-device">
+            <div class="shot" style="width:360px">
+              <div class="browser-chrome">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><a href="dveri/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none">hikaru220.github.io/My-Work/dveri</a></div>
+              </div>
+              <img src="images/vereya-screenshot.jpg" alt="Главный экран лендинга ВЕРЕЯ — межкомнатные двери" loading="lazy">
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Лендинг на заказ · стиль «Тишина»</div>
+            <h3>Верея — двери</h3>
+            <p>Демо-сайт дверного бренда для показа заказчику — образец фронтенда, не продакшен-система</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Имиджевый лендинг вымышленного дверного бренда — пример того, как я делаю маркетинговые сайты: контент, вёрстка и анимации с нуля, без конструкторов и шаблонных секций.</p>
+          <div class="tags">
+            <span class="tag">React 19</span><span class="tag">TypeScript</span>
+            <span class="tag">Tailwind CSS v4</span><span class="tag">Motion (Framer Motion)</span>
+          </div>
+          <ul class="highlights">
+            <li>Калькулятор стоимости в реальном времени — коллекция, количество, монтаж и доборы — уходит в WhatsApp <b>готовым сообщением</b> в один клик.</li>
+            <li>Плавающая кнопка WhatsApp не пропадает ни на одном экране: полноширинная плашка на телефоне, пилюля с пульсацией на десктопе.</li>
+            <li>Мобильный хедер сворачивает всё, что не помещается, в полноэкранное меню по гамбургеру.</li>
+            <li>Скролл-хореография на <code>Motion</code> (<code>whileInView</code>, <code>useScroll</code>) — параллакс на фото, отключается по <code>prefers-reduced-motion</code>.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card" style="--proj: var(--c-kraft); --fill: var(--fill-kraft)">
+        <div class="hero-band">
+          <svg class="watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M4 21V7l8-4 8 4v14"/><path d="M4 21h16"/><path d="M14 21v-6h-4v6"/></svg>
+          <div class="hero-device">
+            <div class="shot" style="width:360px">
+              <div class="browser-chrome">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><a href="kraft-doors/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none">hikaru220.github.io/My-Work/kraft-doors</a></div>
+              </div>
+              <img src="images/kraft-screenshot.jpg" alt="Главный экран лендинга KRAFT — дверная мануфактура" loading="lazy">
+            </div>
+          </div>
+          <div class="hero-text">
+            <div class="eyebrow-inv">Лендинг на заказ · второй стиль</div>
+            <h3>KRAFT — двери</h3>
+            <p>Тот же тип клиента, контрастный образ: тёмная мануфактура вместо тихого шоурума</p>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="desc">Второй вариант оформления для дверного бизнеса — сознательный контраст с «Тишиной» Вереи: тёмный, редакторский, с видео вместо статичных фото. Не одна лендинг-страница, а полноценный мини-сайт на клиентском роутинге — отдельные разделы каталога, производства и материалов на каждую категорию дверей.</p>
+          <div class="tags">
+            <span class="tag">React 19</span><span class="tag">React Router (HashRouter)</span>
+            <span class="tag">Framer Motion</span><span class="tag">Vite</span>
+          </div>
+          <ul class="highlights">
+            <li>Видео вместо статичных фото в каждом хиро-блоке — с постер-кадром для мгновенной первой отрисовки, пока клип грузится.</li>
+            <li><code>HashRouter</code> — четыре товарные категории и страницы «О нас»/«Контакты» работают как отдельные маршруты без серверных правил редиректа на GitHub Pages.</li>
+            <li>На каждой категории — свой блок производства, материалов и отзывов, а не переиспользование одних и тех же секций под разным цветом.</li>
+            <li>Тот же принцип, что и в Верее, — WhatsApp всегда на виду: полноширинная плашка на телефоне, пульсирующий круг на десктопе.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="section-title" style="margin-bottom:10px">Контакты</div>
+    <div class="contact-row">
+      <p class="contact-note">Открыт для фриланс-проектов и стажировок — пишите в Telegram, отвечаю быстро.</p>
+      <div class="links">
+        <a class="contact-primary" href="https://t.me/H1karu_2" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.8 19.6c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9L18 6.6c.4-.4-.1-.6-.6-.2L7.5 12.8l-4.8-1.5c-1-.3-1-1 .2-1.5L20.6 3c.8-.3 1.6.2 1.3 1.3Z"/></svg>
+          Telegram · @H1karu_2
+        </a>
+        <a href="https://github.com/Hikaru220" target="_blank" rel="noopener">github.com/Hikaru220</a>
+        <a href="https://github.com/Hikaru220/My-Work" target="_blank" rel="noopener">github.com/Hikaru220/My-Work</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
