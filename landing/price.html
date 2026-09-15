@@ -88,11 +88,9 @@ a{color:inherit}
 .tier li{position:relative;padding-left:1.4rem;font-size:.95rem;line-height:1.45}
 .tier li::before{content:"";position:absolute;left:0;top:.5em;width:8px;height:8px;border-radius:2px;background:var(--brass)}
 .tier .btn{margin-top:auto;justify-content:center}
-.tier.featured{background:var(--panel);color:var(--panel-text);border-color:var(--panel)}
-.tier.featured .who,.tier.featured .price-from,.tier.featured .price-cur{color:var(--panel-muted)}
-.tier.featured .term{color:var(--brass)}
-.badge{position:absolute;top:-.7rem;right:1.1rem;background:var(--brass);color:#15202B;font-size:.75rem;font-weight:600;padding:.22rem .68rem;border-radius:999px}
-@media(min-width:900px){.tier.featured{margin-top:-10px;box-shadow:0 20px 44px -16px color-mix(in srgb,var(--brass) 45%,transparent)}}
+.tier-audience{display:inline-block;align-self:flex-start;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--patina);background:color-mix(in srgb,var(--patina) 12%,transparent);padding:.28rem .65rem;border-radius:6px;margin-bottom:.9rem}
+.tier-excludes{font-size:.86rem;color:var(--muted);border-top:1px solid var(--line);padding-top:.8rem;margin:0 0 1.2rem}
+.tier-excludes b{color:var(--text)}
 .tiers .tier:nth-child(1).in{transition-delay:.09s}
 .tiers .tier:nth-child(2).in{transition-delay:0s}
 .tiers .tier:nth-child(3).in{transition-delay:.18s}
@@ -180,52 +178,54 @@ body{padding-bottom:6rem}
 <section class="sec wrap" id="price" style="padding-top:0">
   <div class="tiers">
     <article class="tier reveal">
-      <div class="tier-top"></div>
-      <h3>Готовый сайт</h3>
-      <p class="who">Берёте пример как есть.</p>
+      <span class="tier-audience">Для экспертов</span>
+      <h3>Презентационная страница</h3>
+      <p class="who">Юрист, турагент, врач, фотограф, репетитор, мастер, консультант, небольшое агентство</p>
       <span class="price-from">от</span>
       <span class="price-big">8 000<span class="price-cur">сом</span></span>
       <p class="term">1 день</p>
       <ul>
-        <li>Ваши фото, тексты, цены, контакты</li>
-        <li>Логотип и название</li>
-        <li>Бесплатный адрес в интернете</li>
-        <li>Запускаю и показываю, как пользоваться</li>
+        <li>Одна страница, 5–6 блоков: о вас, услуги, работы, отзывы, контакты</li>
+        <li>Упакую ваш опыт и работы в понятный вид</li>
+        <li>Напишу тексты — сами сочинять не будете</li>
+        <li>Заявки приходят в WhatsApp</li>
       </ul>
-      <a class="btn btn-ghost" data-wa data-msg="Здравствуйте, Даниил! Интересует тариф «Готовый сайт» — от 8 000 сом." href="#contact">Обсудить</a>
+      <p class="tier-excludes"><b>Не входит:</b> каталог товаров, корзина, свой адрес сайта</p>
+      <a class="btn btn-ghost" data-wa data-msg="Здравствуйте, Даниил! Интересует презентационная страница — от 8 000 сом." href="#contact">Обсудить</a>
     </article>
 
-    <article class="tier featured reveal">
-      <span class="badge">Чаще всего</span>
-      <div class="tier-top"></div>
-      <h3>Готовый плюс доработки</h3>
-      <p class="who">Подходит, но хочется своё.</p>
+    <article class="tier reveal">
+      <span class="tier-audience">Для магазинов</span>
+      <h3>Сайт-каталог</h3>
+      <p class="who">Магазин, производство, салон — от 20 до 100 товаров</p>
       <span class="price-from">от</span>
       <span class="price-big">13 000<span class="price-cur">сом</span></span>
       <p class="term">3–4 дня</p>
       <ul>
-        <li>Всё из первого тарифа</li>
-        <li>Свои цвета и шрифты</li>
-        <li>Новые разделы, которых нет в примере</li>
-        <li>Тексты за вас — до трёх страниц</li>
+        <li>5–8 разделов, каталог с фото и ценой у каждого товара</li>
+        <li>Разбивка по категориям, поиск</li>
+        <li>В заявку сразу подставляется название товара</li>
+        <li>Подгоню под ваш фирменный стиль</li>
       </ul>
-      <a class="btn btn-light" data-wa data-msg="Здравствуйте, Даниил! Интересует тариф «Готовый плюс доработки» — от 13 000 сом." href="#contact">Обсудить</a>
+      <p class="tier-excludes"><b>Не входит:</b> корзина и оплата, свой адрес сайта</p>
+      <a class="btn btn-light" data-wa data-msg="Здравствуйте, Даниил! Интересует сайт-каталог — от 13 000 сом." href="#contact">Обсудить</a>
     </article>
 
     <article class="tier reveal">
-      <div class="tier-top"></div>
+      <span class="tier-audience">Индивидуально</span>
       <h3>Сайт с нуля</h3>
-      <p class="who">Так, как ни у кого.</p>
+      <p class="who">Когда нужно так, как ни у кого</p>
       <span class="price-from">от</span>
       <span class="price-big">20 000<span class="price-cur">сом</span></span>
       <p class="term">От 10 дней · считаю отдельно</p>
       <ul>
-        <li>Сначала рисую, потом собираю</li>
-        <li>Сколько угодно страниц</li>
+        <li>Сначала рисую, согласуем, потом собираю</li>
+        <li>Сколько нужно разделов — столько и будет</li>
         <li>Корзина и оплата, если нужно</li>
-        <li>Панель управления уже входит</li>
+        <li>Сами меняете цены и товары, без обращения ко мне</li>
       </ul>
-      <a class="btn btn-ghost" data-wa data-msg="Здравствуйте, Даниил! Интересует тариф «Сайт с нуля» — от 20 000 сом." href="#contact">Обсудить</a>
+      <p class="tier-excludes">Цена считается индивидуально после разговора</p>
+      <a class="btn btn-ghost" data-wa data-msg="Здравствуйте, Даниил! Интересует сайт с нуля — от 20 000 сом." href="#contact">Обсудить</a>
     </article>
   </div>
 
