@@ -28,8 +28,8 @@ export default function AboutPage() {
 
           <div className="about-reel">
             <DetailVideo
-              src="/videos/kraft-promo.mp4"
-              poster="/videos/kraft-promo-poster.jpg"
+              src="videos/kraft-promo.mp4"
+              poster="videos/kraft-promo-poster.jpg"
               caption="Коротко о KRAFT — 12 секунд."
               aspect="16 / 9"
             />

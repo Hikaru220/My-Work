@@ -31,10 +31,10 @@ export const slides = [
     tagline: "стальной каркас — тёплый периметр",
     desc: "Многослойное полотно с термомостом и скрытыми петлями. Класс защиты выше среднего, шумоизоляция и герметичный контур для зим Бишкека.",
     cta: "Смотреть каталог",
-    video: "/videos/entrance.mp4",
-    poster: "/videos/entrance-poster.jpg",
-    detailVideo: "/videos/entrance-detail.mp4",
-    detailPoster: "/videos/entrance-detail-poster.jpg",
+    video: "videos/entrance.mp4",
+    poster: "videos/entrance-poster.jpg",
+    detailVideo: "videos/entrance-detail.mp4",
+    detailPoster: "videos/entrance-detail-poster.jpg",
     detailCaption: "Металлический кант и заклёпки — деталь, которая держит форму десятилетиями.",
     products: [
       {
@@ -72,10 +72,10 @@ export const slides = [
     tagline: "тишина между комнатами",
     desc: "Массив и шпон ценных пород — от лаконичных филёнок до высоких порталов в пол. Каждое полотно подбирается в тон существующему полу.",
     cta: "Смотреть каталог",
-    video: "/videos/interior.mp4",
-    poster: "/videos/interior-poster.jpg",
-    detailVideo: "/videos/interior-detail.mp4",
-    detailPoster: "/videos/interior-detail-poster.jpg",
+    video: "videos/interior.mp4",
+    poster: "videos/interior-poster.jpg",
+    detailVideo: "videos/interior-detail.mp4",
+    detailPoster: "videos/interior-detail-poster.jpg",
     detailCaption: "Резной массив крупным планом — фактура, которую видно только вблизи.",
     products: [
       {
@@ -113,10 +113,10 @@ export const slides = [
     tagline: "дверь, которой не видно",
     desc: "Полотно заподлицо со стеной, без наличников. Для интерьеров, где важна одна цельная плоскость без единого шва.",
     cta: "Смотреть каталог",
-    video: "/videos/hidden.mp4",
-    poster: "/videos/hidden-poster.jpg",
-    detailVideo: "/videos/hidden-detail.mp4",
-    detailPoster: "/videos/hidden-detail-poster.jpg",
+    video: "videos/hidden.mp4",
+    poster: "videos/hidden-poster.jpg",
+    detailVideo: "videos/hidden-detail.mp4",
+    detailPoster: "videos/hidden-detail-poster.jpg",
     detailCaption: "Ни одного наличника — коридор читается как цельная плоскость.",
     products: [
       {
@@ -148,10 +148,10 @@ export const slides = [
     tagline: "детали, которые не подводят",
     desc: "Петли, доводчики и ручки от проверенных европейских производителей. Фурнитура, рассчитанная на десятилетия ежедневного использования.",
     cta: "Смотреть подбор",
-    video: "/videos/hardware.mp4",
-    poster: "/videos/hardware-poster.jpg",
-    detailVideo: "/videos/hardware-detail.mp4",
-    detailPoster: "/videos/hardware-detail-poster.jpg",
+    video: "videos/hardware.mp4",
+    poster: "videos/hardware-poster.jpg",
+    detailVideo: "videos/hardware-detail.mp4",
+    detailPoster: "videos/hardware-detail-poster.jpg",
     detailCaption: "Винтажная бронзовая ручка — фурнитура, которая стареет красиво.",
     products: [
       {
@@ -191,8 +191,8 @@ export const about = {
   tagline: "цех в Бишкеке, контроль на каждом этапе",
   desc: "Полный цикл производства — от сушки массива до финального монтажа. Ни одного этапа на аутсорсе.",
   cta: "Как мы работаем",
-  video: "/videos/about.mp4",
-  poster: "/videos/about-poster.jpg",
+  video: "videos/about.mp4",
+  poster: "videos/about-poster.jpg",
   intro:
     "KRAFT — дверная мануфактура полного цикла в Бишкеке. Мы не пересобираем чужие полуфабрикаты и не работаем с посредниками: каждое полотно проходит весь путь — от сушки массива до монтажа — на одной площадке, под одной командой.",
   quote: {
